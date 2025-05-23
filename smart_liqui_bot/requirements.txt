@@ -1,0 +1,11 @@
+arch
+cryptotoolbox
+plotly
+dropbox
+pandas
+numpy
+scipy
+sklearn
+requests
+gql
+requests_toolbelt

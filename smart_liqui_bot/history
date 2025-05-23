@@ -1,0 +1,15 @@
+ 1318  heroku ps:scale worker=1
+ 1319  cd ..
+ 1320  ls
+ 1321  mkdir uniswapv3-cybergiraffe
+ 1322  cd uniswapv3-cybergiraffe
+ 1323  ls
+ 1324  cp ../uniswapv3-scheduler/* .
+ 1325  ls
+ 1326  git init
+ 1327  git add *
+ 1328  git commit -m 'first commit'
+ 1329  heroku login
+ 1330  heroku git:remote -a uni-v3-rebalancing
+ 1331  git commit -m 'first commit'
+ 1332  git push heroku master
