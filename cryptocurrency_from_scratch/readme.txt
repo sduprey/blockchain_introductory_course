@@ -89,3 +89,16 @@ http://127.0.0.1:5003/replace_chain
 
 
 #### And so on
+
+
+
+
+##### advanced MIT projects
+https://github.com/anders94/blockchain-demo/
+
+https://tools.superdatascience.com/blockchain/hash/
+https://tools.superdatascience.com/blockchain/hash
+https://tools.superdatascience.com/blockchain/public-private-keys/keys
+https://tools.superdatascience.com/blockchain/public-private-keys/signatures
+https://tools.superdatascience.com/blockchain/blockchainhttps://tools.superdatascience.com/blockchain/distributed
+https://tools.superdatascience.com/blockchain/tokens
