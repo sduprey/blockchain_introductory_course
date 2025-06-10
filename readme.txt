@@ -1,3 +1,5 @@
+Blockchain Introduction course syllabus
+
 1)Bitcoin : the poster boy for PoW blockchain
 1.1) Hash cryptography
 1.2) Distributed Network
