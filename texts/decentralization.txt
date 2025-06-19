@@ -1,0 +1,106 @@
+Which of the following is what makes it possible for a group of strangers to work together to build and maintain a shared database like blockchain, without needing to trust each other?
+
+A. Shared vision of individuals for the sake of a project
+B. Forking
+C. Trust fund
+D. Consensus mechanism 
+Decentralized networks use consensus mechanisms to achieve agreement among participants on the current state of the ledger. A consensus mechanism, in other words,  is a way for a group of people to agree on something without needing to trust each other. This is important in blockchain networks because it allows people to work together to build and maintain a shared database, even if they don't know or trust each other. There are many different consensus mechanisms, but some of the most common ones include Proof of Work and Proof of Stake.
+
+2 / 10
+Which blockchain consensus mechanism promotes decentralization by allowing any participant to contribute to the network's security and governance, albeit, by using expensive and powerful hardware?
+
+A. Proof of Work (PoW) 
+B. Delegated Proof of Stake (DPoS)
+C. Proof of Stake (PoS)
+D. Proof of Quorum (PoQ)
+Despite their commitment to decentralization, Proof of Work (PoW) blockchains impose formidable entry barriers. These include the need for costly hardware, substantial electricity expenses, and the dominance of professional mining pools to produce a hash power lower than the network difficulty (network’s hash power) which, by the way, rises with increased participation and time. Additionally, technical expertise is required for setup and maintenance. As a result, average users often find it challenging to run nodes and participate as miners in PoW networks.
+
+3 / 10
+Which of the following is the primary benefit of decentralization in the context of censorship resistance?
+
+A. Enhanced scalability
+B. Increased privacy
+C. Reduced reliance on intermediaries 
+D. Improved user experience
+While decentralization can be effective in improving the scalability, privacy and user experience of a network, the primary benefit is that it reduces the control that central authorities or intermediaries have over a network, making it more resistant to censorship.
+
+4 / 10
+What are three primary types of blockchain clients?
+
+A. Lightweight or SPV clients, Full clients, and Archive clients 
+B. Lightweight or SPV clients, API clients, and Archive clients
+C. Full clients, Third party clients and API clients
+D. Lightweight or SPV clients, Third party clients, and RPC clients 
+Lightweight clients (or SPV clients): These do not download the entire blockchain. Instead, they download only a subset, typically the block headers, and rely on full nodes when they need more detailed information. They're useful for devices with limited storage or for quick setups to verify basic payment transactions.
+
+Full clients: These download and store the entire blockchain history, validating each transaction in every block to maintain network security. However, they typically don’t keep the full state of every block.
+
+Archive clients : These are a type of full client, but they store both the entire blockchain and the full state at every block. They are storage-intensive and are used primarily for specific purposes, like detailed blockchain analysis or supporting certain dapps that require historical state data.
+
+Choosing the appropriate client type is based on the needs and resources of the user or entity. Regular users might prefer lightweight clients for everyday transactions, while developers or services requiring historical data could opt for full or archive clients.
+
+5 / 10
+Which is the most significant indicator of a highly decentralized blockchain/Web3 network?
+
+A. Network that is owned by individuals in the form of nodes and bots 
+B. Network that aims to solve scalability trilemma
+C. Network with several independent nodes spread across the world 
+D. Network with nodes operating from powerful data centers
+The essence of true decentralization lies in the democratization of control within a network. A truly decentralized blockchain or Web3 network is one where an average individual, not just powerful entities or a privileged few, has the ability to run and govern the network. Nodes, or validators, in this context, are the heartbeat of such networks, playing a pivotal role in processing and securing user transactions.
+
+The degree of a network's decentralization can be gauged by assessing who operates its nodes. Are they predominantly controlled by large corporations with vast hardware resources? Or perhaps a select group with significant financial might? Ideally, barriers to entry should be minimal, allowing nearly every member of its community to run nodes and earn rewards. This underscores the importance of community growth as a precursor to expanding the future user and activity growth. A network marked by diverse, independent nodes—regardless of their origin—that can collaboratively participate in consensus and decision-making embodies the true spirit of decentralization, while also fostering parallel community engagements.
+
+6 / 10
+Which of the following best describes how decentralization operates in blockchain networks?
+
+A. By using predetermined nodes across the world to generate new blocks
+B. By distributing control and resources among many unrelated nodes across the world 
+C. By using a miner to validate transactions
+D. By using a trusted third party to store the blockchain
+Decentralization distributes control across multiple nodes. The more independent nodes/validators spread across the world, the higher the decentralization is, which will make it more difficult for malicious actors to compromise or abuse the network to their preferences.
+
+This is in contrast to centralized systems, where control is concentrated in the hands of a single entity or few large entities making them less efficient than decentralized systems. This is similar to how private companies became more efficient than government enterprises as a result of power getting distributed to more people in the organization. Higher participation of average people in company affairs = higher efficiency and better control.
+
+7 / 10
+Which of the following does NOT represent decentralization in the Decentralized Finance or DeFi industry?
+
+A. Increased security against cyberattacks
+B. Stability and security enabled by banks 
+C. Instant cross-border payments with fraction of costs
+D. Improved transparency and accountability
+Stability and security enabled by banks and other financial institutions doesn’t stay that way often. Due to lack of transparency, data and assets of customers in the bank’s custody are vulnerable to abuses and inefficient management. Centralized institutions can exert unilateral authority, unfairly excluding certain individuals. Additionally, centralized control can lead to higher fees and less innovation as you see with traditional cross-border transactions.
+
+8 / 10
+What is the benefit of decentralization in blockchain networks?
+
+A. Financial Sovereignty 
+B. Digital Identity Sovereignty
+C. Data Sovereignty
+D. All of the above 
+Blockchain aims to help preserve basic human sovereignties, here are the top areas where blockchain empowers users through its core principle of decentralization, and therefore security.
+
+Financial Sovereignty: Blockchain provides users with financial sovereignty by allowing them to have full control over their digital assets, conduct peer-to-peer transactions, and manage their own funds without reliance on traditional financial institutions.
+
+Digital Identity Sovereignty: Blockchain-based identity solutions aim to give users more control over their digital identities, allowing them to manage and share identity information while reducing reliance on centralized identity providers.
+
+Data Sovereignty: Blockchain technology has proven to enhance data privacy sovereignty by enabling users to determine who can access their data, execute transactions privately, and share data on their own terms.
+
+9 / 10
+Which of the following best describes a blockchain “client”?
+
+A. A user who invests in cryptocurrencies.
+B. A website that displays the latest cryptocurrency prices.
+C. Software that enables interaction with a blockchain while upholding the network's operational protocols 
+D. A password/private key used to access your cryptocurrency wallet.
+Let’s break down the blockchain client into two parts. First, and foremost, upholding a decentralized network's protocols is a fundamental responsibility of any blockchain client. The client must be designed to recognize and follow the blockchain's rules, ensuring the entire network's consistent and correct operation. This includes validating transactions, achieving consensus with other nodes, and adhering to any governance protocols. Remember there is no single person overseeing the operations in a public blockchain network.
+
+At the same time, clients serve as an open-source software application designed to communicate with and participate in a blockchain network. Adhering to the philosophy of decentralization, these clients allow users to operate without seeking permission from any centralized authority. They enable users to send and receive transactions, store and manage their cryptocurrency, help deploy smart contracts, build a dapp and query token balances. Blockchain clients are fundamental to the autonomy, immutability, and security of public blockchain networks.
+
+10 / 10
+Which decentralized technology allows users to access web content and services without relying on traditional domain names and centralized DNS?
+
+A. VPN (Virtual Private Network)
+B. TOR (The Onion Router)
+C. AWS (Amazon Web Services)
+D. IPFS (InterPlanetary File System) 
+IPFS (InterPlanetary File System) is a decentralized file storage and retrieval system that eliminates reliance on traditional domain names and DNS. It uses content addressing and a peer-to-peer network, promoting decentralization and censorship resistance. Files are divided into chunks with unique cryptographic hashes, making them accessible even when domain names are subject to censorship. IPFS's redundancy and distributed network enhance data availability and resilience.

@@ -1,0 +1,94 @@
+What type of nodes typically store the complete blockchain transaction history while maintaining the current state of the ledger?
+
+A. Miner nodes
+B. Validator nodes
+C. Archive nodes
+D. Full nodes 
+Full nodes store the entire blockchain, which means they have a record of every transaction ever made on the network. They maintain the current state of the network, which includes the latest account balances, smart contract code, and other pertinent data. Full nodes validate and relay transactions and blocks, ensuring that all network activities adhere to the consensus rules. While they do maintain the entire blockchain history, they don't keep a historical record of the state after every block. They only maintain the most recent state.
+
+2 / 10
+In a blockchain network, which type of nodes provides interfaces for querying and interacting with the blockchain without the need to store the full transaction history?
+
+A. Lightweight Nodes 
+B. Validator Nodes
+C. RPC Nodes 
+D. Archive Nodes
+Remote Procedure Call (RPC) nodes in blockchain networks facilitate direct interaction with the blockchain. Serving as endpoints, they process requests from users or applications, allowing operations like transaction submission, balance inquiries, and contract interactions. By offering standardized APIs, RPC nodes bridge the gap between complex blockchain protocols and user-friendly applications, streamlining the experience for developers. 
+
+Think of RPC nodes as the search bar you use on Google. When you want to know something, you don’t browse the entire internet page by page; you simply type your question into Google's search bar and get answers. Similarly, when you want information from a blockchain or wish to make a transaction, you don't process the entire blockchain; you interact with an RPC node. Just as the search bar gives you quick and relevant results, the RPC node fetches or submits the specific information you need from/to the vast blockchain network. Remember, RPC nodes are request-driven, meaning you make a specific request and then get a response as opposed to websockets that feed the network to and from with real time information.
+
+3 / 10
+What is the most accurate statement with respect to consensus mechanisms in sharded blockchain networks?
+
+A. Each shard reaches consensus on its own transactions 
+B. All shards must reach consensus on all transactions in order for the network to reach consensus
+C. All nodes in every shard must reach consensus on all transactions in order for the network to reach consensus
+D. A central authority is responsible for reaching consensus on all transactions
+Sharding is a method used to improve the scalability of blockchain networks by dividing the network into multiple portions, or "shards", each responsible for processing a subset of transactions. Each shard independently reaches consensus on its own set of transactions, allowing multiple shards to process transactions concurrently and thus increasing the network's overall throughput.
+
+4 / 10
+What type of nodes typically store the complete blockchain transaction history while maintaining the blockchain’s historical data as well?
+
+A. Miner nodes
+B. Validator nodes
+C. Archive nodes 
+D. Indexing nodes 
+Like full nodes, archive nodes store the complete transaction history on the blockchain. Archive nodes differentiate themselves by also storing every historical state of the network after every block. This means that for every block height, they can provide the state of every account, contract, and more. Archive nodes are particularly useful for applications and developers that need to query historical states of the network. This could be essential for certain dapps, analytics tools, or forensic investigations. Due to the additional historical state data they store, archive nodes demand significantly more storage than full nodes.
+
+5 / 10
+Which of the following best describes the role of blockchain client software for nodes?
+
+A. Client software enable nodes to front-run transactions
+B. Allows nodes to operate, validate transactions, and maintain consensus on the blockchain network 
+C. Provides a storage solution for the private keys of end users
+D. Serves as a decentralized exchange interface for swapping tokens
+Blockchain client software is essential for the operation of nodes on a blockchain network. When someone runs blockchain client software, such as Bitcoin Core for Bitcoin or Geth for Ethereum, they are effectively operating a node on that respective blockchain network. This node then validates transactions, maintains the consensus rules of the network, and interacts with other nodes to ensure the blockchain's integrity and security. The client software facilitates these operations, enabling the node to play its part in the decentralized network. Options A, C, and D, while relevant to the broader blockchain and cryptocurrency ecosystem, do not accurately describe the core role of client software for nodes.
+
+6 / 10
+Which nodes are known to facilitate data transmission and propagation across PoS networks including sharded and cross-chain networks?
+
+A. Relay nodes 
+B. Gateway nodes
+C. SPV nodes
+D. Miner nodes
+Relay nodes in PoS systems typically help in the rapid and efficient propagation of transactions and new blocks across the network. By quickly relaying this information, they ensure the network remains synchronized and that transactions get processed in a timely manner. Relay nodes, further, can act as a protective buffer similar to sentry nodes for validator nodes while maintaining communications across cross-chain protocols. Relay nodes also have the potential to help distribute the network traffic and reduce the load on validators, especially when there's a high volume of incoming transactions or queries.
+
+7 / 10
+Which nodes are primarily responsible for actively participating in the process of ordering and validating transactions, forming consensus, proposing a block, and securing the network in PoS networks?
+
+A. Lightweight nodes
+B. Validator nodes 
+C. Full nodes
+D. All of the above
+Validator nodes actively participate in transaction ordering & validation, achieving consensus, block production and maintaining the blockchain's security. Further, in PoS networks, validator nodes will need to stake or offer a certain amount of native coin as collateral to prevent misbehavior or malicious activities. 
+
+Lightweight nodes typically do not participate in the consensus process or validate transactions. They rely on full nodes or validator nodes to provide them with accurate information about the state of the network.
+
+Full nodes in a PoS network store a complete copy of the blockchain and validate all transactions but may not necessarily be involved in the consensus process and/or proposing a block. They help ensure the integrity of the blockchain and provide data to other nodes, including RPC nodes, lightweight nodes and validator nodes.
+
+8 / 10
+What are nodes in a blockchain network?
+
+A. Participants or computers that order, validate, relay, and store transactions and blocks in the network 
+B. Cryptocurrency transactions
+C. Programming code
+D. Digital ledgers
+Nodes in a blockchain network are individual participants or computers that maintain order, validate, relay, and store transactions and blocks. They maintain the decentralized and distributed nature of the blockchain, ensuring its integrity, security, and consistency. Depending on their role and the data they store, nodes can be classified as validator nodes, full nodes, archive nodes among others. Each type plays a distinct role in supporting and securing the network.
+
+9 / 10
+What type of nodes provide an interface between traditional web browsers and IPFS (InterPlanetary File System), a decentralized storage network?
+
+A. Storage nodes 
+B. Retrieval nodes
+C. Full nodes
+D. Gateway nodes 
+Gateway nodes can fetch data from the IPFS network and present it via HTTP, making IPFS content accessible through regular web browsers. As you see, the gateway nodes in IPFS are crucial because they bridge traditional web infrastructure with the decentralized network.
+
+10 / 10
+In Filecoin, a decentralized storage platform, which type of nodes offer storage capacity, furnish cryptographic evidence of their reliable data storage, and swiftly deliver stored data to users when requested?
+
+A. Host nodes
+B. Storage & Retrieval nodes 
+C. Relay nodes
+D. Sentry nodes
+Along with IPFS, Filecoin is one of the most well-known decentralized storage solutions. Both storage and retrieval nodes (or miners) in Filecoin are critical components of the network, with storage miners providing the primary storage capacity and retrieval miners ensuring that users can efficiently access their stored data quickly upon request. Further, in Filecoin, storage miners earn tokens by providing storage space and producing the cryptographic proofs whereas retrieval miners earn fees for supplying data to clients quickly.

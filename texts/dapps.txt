@@ -1,0 +1,106 @@
+Which of the following does not operate as a decentralized application (dapp)?
+
+A. Blockchain explorers
+B. iPhone App Store 
+C. NFT marketplace
+D. Oracles
+The iPhone App Store is a centralized platform controlled and operated by the company, Apple. All applications that are made available through the App Store can be assumed to undergo a review process by Apple before they are published. This centralized control is in contrast to decentralized applications (dapps) which operate on blockchain technology and are not controlled by any single entity. Blockchain explorers, NFT marketplaces, and oracles are all examples of applications or services that can operate in a decentralized manner.
+
+2 / 10
+On which of the following factors does a dapp's performance primarily depend?
+
+A. Quality of user's internet connection
+B. The complexity of the dapp’s user interface
+C. Performance of the underlying (L1) blockchain 
+D. The development framework used for the dapp
+The quality of the user's internet connection can affect the speed at which the user can interact with the dapp, but it will not affect the overall performance of the dapp itself. The complexity of a dapp's user interface can also affect the experience of the user interacting with the dapp, but it will not have a significant impact on the overall performance of the dapp again. The development framework used for a dapp is more important for determining the features and functionality of the dapp than it is for determining the performance of the dapp.
+
+The performance of a dapp is primarily dependent on the performance of the underlying blockchain. This is because dapps are built on top of blockchains and rely on the blockchain's architecture and infrastructure to process transactions and store data.
+
+3 / 10
+What is the main distinction between smart contracts and dapps (Decentralized Applications)?
+
+A. Smart Contracts are written in Solidity, while dapps are written in JavaScript 
+B. Dapps handle transactions, while Smart Contracts cannot handle transactions
+C. Smart Contracts are used only in Ethereum, while dapps can be used in any blockchain
+D. Smart Contracts facilitate, verify, or enforce the negotiation or performance of a contract, while dapps are the front-end interface of smart contracts 
+Dapps typically have smart contracts on the backend to execute automated tasks and present a user interface on the front-end for user interactions. The distinction lies in the application layer (Dapp) interfacing with the protocol layer (smart contract), allowing users to perform secure, trustless transactions with each other. Essentially, the dapp provides a means for users to interact with the underlying blockchain and smart contracts, while the smart contracts provide the logic and rules that execute on the blockchain itself.
+
+4 / 10
+Which layer on a L1 blockchain does smart contracts and dapps typically reside?
+
+A. Smart Contracts and dapps reside in the same application layer since smart contracts are simply the backend logic for dapps 
+B. Dapps reside in application layer while smart contracts reside in the protocol layer 
+C. Dapps reside in protocol layer while smart contracts reside in the application layer
+D. Smart contracts reside in the protocol layer while dapps reside in the network layer
+In a Layer 1 (L1) blockchain, both smart contracts and decentralized applications (dapps) are part of the application layer. Smart contracts provide the backend logic or the set of rules governing the operations of dapps. They are coded agreements that execute automatically when predetermined conditions are met. dApps, on the other hand, are the user-facing applications that interact with these smart contracts. They both operate at the application layer of the blockchain, enabling users to engage in various decentralized transactions and activities.
+
+The protocol layer of a blockchain refers to the core technology, including the blockchain's consensus mechanism. The network layer involves the infrastructure that enables data transmission across the blockchain network (nodes and other P2P systems).
+
+5 / 10
+Which of the following platforms does NOT function both as a Layer 1 (L1) blockchain and as a smart contract platform enabling decentralized solutions and applications for end users?
+
+A. Bitcoin 
+B. Shardeum
+C. Avalanche
+D. Ethereum
+An L1 blockchain is a base-layer blockchain that can process transactions and store data in a decentralized way. A smart contract platform is a blockchain that allows developers to deploy smart contracts to create open source and decentralized apps.
+
+6 / 10
+Which component in a dapp ensures that it can operate without a central authority?
+
+A. Client-side interface
+B. RPC node 
+C. Smart Contracts 
+D. Websockets
+Smart contracts enable dapps to function autonomously without intermediaries. When integrated into decentralized applications (dapps), these contracts serve as the automated decision-making layer, facilitating, verifying, or enforcing credible transactions without human intervention. Smart contracts form the backbone of dapps, allowing them to operate in a trustless, transparent, and automated manner within the blockchain ecosystem.
+
+For example, consider a decentralized lending platform: when a user meets all the criteria to obtain a loan (like depositing enough collateral), a smart contract automatically processes the loan without the need for a traditional bank or loan officer to approve it. This autonomy, enabled by smart contracts, reduces reliance on intermediaries, which can speed up processes, decrease costs, and reduce opportunities for bias or tampering.
+
+7 / 10
+Which term refers to a collection of smart contracts that act as a back-end with a front-end user interface?
+
+A. Decentralized Application (Dapp) 
+B. Middleware
+C. Development framework
+D. Digital ledger
+Decentralized Application (Dapp) is a software application that runs on a distributed computing system, typically a blockchain. Unlike traditional applications that run on centralized servers, dapps run on peer-to-peer networks. The backend of a dapp is represented by smart contracts deployed on a blockchain. These contracts are self-executing and don't require intermediaries. They contain the logic, rules, and data structures that govern how the application functions. The frontend is the user interface, typically built using web technologies like HTML & JavaScript, that allows users to interact with the smart contracts. This is similar to how we interact with traditional web applications, but the difference lies in the underlying architecture (blockchain architecture) and the decentralized nature of the backend (smart contracts).
+
+8 / 10
+In a dapp, what is the role of a 'token'?
+
+A. Representing ownership of assets or data on the dapp
+B. Used as a medium of exchange within the dapp ecosystem
+C. Serving as a reward mechanism for network validators and participants
+D. All of the above 
+Tokens within dapps can act as a digital representation of ownership, often called "tokenization." For example, a unique token might represent a specific piece of art, real estate, or any other tangible or intangible item as in the case of NFTs. By tokenizing assets, they can be easily traded, sold, or transferred on blockchain networks, enhancing liquidity and introducing new possibilities for digital ownership.
+
+Tokens play a pivotal role in dapp ecosystems by facilitating transactions or as a mode of payment for services. For instance, in a decentralized marketplace dapp, tokens might be used to buy or sell goods and services. These tokens not only ease transactions within a specific dapp but also can interlink various dapps, promoting an integrated ecosystem of decentralized applications. The use of tokens can also introduce economic incentives for users and developers, encouraging growth and participation
+
+In blockchain networks, validators or node operators play a vital role in confirming transactions and ensuring the security of the chain. To incentivize this function, they are frequently rewarded with tokens. Beyond just network validation, tokens also serve as a reward for a variety of participatory activities within a dapp. This might include content creation, staking, voting on governance proposals, or even simple engagement tasks. This dual role of rewarding both technical participation (like validation) and community engagement ensures the health, security, and active involvement of stakeholders in the dapp ecosystem.
+
+9 / 10
+Which of the following is a use case of decentralized application (Dapp)?
+
+A. ChatGPT
+B. Insta reels
+C. Automated Market Maker (AMM) 
+D. Designated Market Makers (DMMs)
+Automated Market Makers (AMMs) are a common use case of decentralized applications (Dapps) within the world of blockchain and decentralized finance (DeFi).
+
+AMMs are implemented through smart contracts on blockchain platforms like Ethereum to facilitate trades and manage liquidity without the need for intermediaries. They serve as automated, decentralized alternatives to traditional order book-based exchanges. Transactions and liquidity pools on AMMs are recorded on the blockchain, providing transparency and auditability to all participants
+
+Note, a dapp is a software application that runs on a decentralized network, such as a blockchain enabled smart contracts. ChatGPT and Insta reels run on centralized infrastructure developed and maintained by centralized entities. These entities have  control over the data that is used to train and run the models, and they have the ability to change or discontinue the models at any time. They are essentially not immutable and transparent.
+
+10 / 10
+How can dapps be described in terms of governance?
+
+A. They are always governed by a validator nodes 
+B. They are usually governed by consensus among network participants 
+C. They do not have any form of governance or head offices
+D. They fall under the jurisdiction of the regulatory bodies in the countries where they operate
+Dapps, or decentralized applications, have a unique governance structure compared to traditional centralized applications. Rather than being governed by a singular entity or a set of corporate decision-makers, dapps generally employ a consensus mechanism even for decision making among network participants.
+
+Consensus mechanisms are foundational to the operation and security of dapps. They ensure that all transactions and operations on the network are verified and agreed upon by multiple parties, ensuring the integrity and accuracy of the data. This decentralized mode of governance promotes transparency, reduces the risk of censorship, and ensures that no single participant has undue influence over the network.
+
+This doesn't mean dapps operate outside of legal jurisdictions where needed. In fact, developers, users, or entities interacting with or promoting dapps may still be subject to local laws and regulations, depending on their actions and the country's legal stance on blockchain and cryptocurrency. However, the inherent nature of dapps makes them more resistant to centralized control, including from regulatory bodies.

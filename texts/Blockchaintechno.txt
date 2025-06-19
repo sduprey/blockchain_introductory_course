@@ -1,0 +1,106 @@
+What type of digital ledger and database is blockchain technology?
+
+A. Permissioned & DLT
+B. Permissionless/Decentralized & SQL
+C. Permissionless/Decentralized & DB2
+D. Permissionless/Decentralized & DLT 
+Blockchain is a type of ledger or database that is open-source, distributed, and tamper-proof. Blockchain networks are not controlled by any single entity. Instead, they are maintained by a network of computers. This makes blockchain networks more resistant to censorship and fraud. Further, blockchain data is stored/distributed on multiple computers across the network. This redundancy makes blockchain networks resilient to failure. This is in contrast to various default SQL and DB2 database management systems developed by centralized entities.
+
+2 / 10
+What is the purpose of a merkle tree in a blockchain?
+
+A. To hash and store all the transactions in a block
+B. To verify the integrity of transactions in a block 
+C. To compress the size of a block
+D. All of the above 
+A merkle tree is a data structure that is used to verify the integrity of data. It's a tree-like structure where each node is a hash derived from its data and the data of its children. That means each transaction in a block is hashed and added to the merkle tree. The topmost node, known as the root, is a hash of the entire tree. The root hash of the merkle tree is then included in the block header. 
+
+When a node receives a new block, it can verify the integrity of the transactions in the block by calculating the root hash of the merkle tree and comparing it to the root hash in the block header (which includes the nonce). Merkle trees also have the added benefit of compressing the size of a block. By only storing the root hash of the merkle tree in the block header, nodes do not need to store the entire list of transactions in the block. This can save a significant amount of storage space, especially for blocks with a large number of transactions.
+
+3 / 10
+What is the core problem that blockchain solves?
+
+A. Secure data validation and storage by a trusted independent party
+B. Secure data validation and storage without a 3rd party 
+C. Secure storage of digital assets
+D. All of the above
+Blockchain, at its core, is primarily used to validate and store data in a peer-to-peer way, without the need for a central authority. This makes it ideal for applications such as supply chain management, financial services, and voting.
+
+Secure storage of digital assets is indeed one of the benefits of blockchain technology, but it's not a core objective in the foundational sense. Since blockchain's inception, its primary aim has been to enable a decentralized peer-to-peer system without intermediaries. The core objectives include ensuring trustless transactions, censorship resistance, and maintaining an immutable, transparent ledger without central authority.
+
+4 / 10
+Which of the following best describes a "block" in a blockchain?
+
+A. A group of transactions ordered, validated, confirmed and added to a blockchain 
+B. A group of transactions validated, confirmed but are in the queue (memory pool) to be added to the blockchain
+C. A group of validated transactions pending consensus validation before being added to the blockchain 
+D. All of the above
+Imagine sending a message in the form of a transaction on a blockchain network. Once sent, it's like broadcasting that message to a network of computers known as nodes. These nodes act like message checkers, verifying the legitimacy of your message. If it checks out, your message joins a waiting area called the 'memory pool.' Now, picture a special computer called a 'validator' collecting several messages from the memory pool and putting them (ordering them) into a container called a 'block.' The validator ensures everything in the block is in order and then shows (broadcast) it to other validators for a second check. They all agree that it looks good, sign the block, and declare, 'This is a genuine block with valid messages.' Once enough validators give their approval, the block, with your messages (transactions) inside, is added to a digital ledger called the 'blockchain.' Those validators who helped make this happen receive rewards for their efforts in the form of cryptocurrency. In the end, your messages are not only secure but also officially part of the blockchain.
+
+5 / 10
+Which of the following represent the bedrock principles of a public blockchain?
+
+A. Decentralization, Security, Scalability & Non-Fungibility
+B. Decentralization, Security, Scalability & Non-Fungibility
+C. Decentralization, Security, Immutability & Transparency 
+D. Decentralization, Security, Scalability & Transparency
+Decentralization allows blockchain networks to operate without the need for a central authority, which makes them more resistant to censorship and fraud. Security is essential for protecting the data on the blockchain from unauthorized access and modification. Immutability ensures that once a transaction is recorded on a blockchain, it cannot be changed or deleted, which makes blockchain data highly reliable and trustworthy. Transparency allows all participants in a blockchain network to view all transactions, which helps to build trust and accountability.
+
+6 / 10
+What is the unique identifier for a block in a blockchain called?
+
+A. Block Nonce
+B. Block Header
+C. Block Hash 
+D. Block Signature
+A block hash is a unique identifier for a block in a blockchain. It is generated using a cryptographic hash function, which is a mathematical algorithm that takes an input and produces a unique output. The block hash is calculated using the block header, which contains information about the block, such as its timestamp, previous block hash, and merkle root. 
+
+Block hash allows blocks to be uniquely identified and linked together to form a chain. Second, it makes it difficult to tamper with the blockchain, as any change to a block would result in a change to its block hash. Finally, it is used to verify the integrity of transactions in a block.
+
+Block headers, nonce, and digital signatures play a role within block hash to maintain the integrity of the blockchain network.
+
+7 / 10
+Which of the following is NOT a consensus mechanism used in typical blockchain networks?
+
+A. Directed Acyclic Graph (DAG) 
+B. Proof-of-Work (PoW)
+C. Proof-of-Stake (PoS)
+D. Delegated Proof-of-Stake (DPoS)
+DAGs are not consensus mechanisms in the same way that Proof-of-Work, Proof-of-Stake, and Delegated Proof-of-Stake are.
+
+Proof-of-Work is the consensus mechanism used by Bitcoin and increasingly fewer blockchain networks. In Proof-of-Work, miners compete to solve complex computer puzzles in order to validate blocks and earn cryptocurrency rewards. While PoW is a highly secure consensus mechanism, only a handful of networks have PoW as their consensus protocol today as a result of its high energy usage.
+
+Proof-of-Stake and its variants like DPoS are newer consensus mechanisms that are more energy-efficient while maintaining high security. In Proof-of-Stake, validators are chosen to validate blocks based on the amount of cryptocurrency they have staked or offered as collateral.
+
+8 / 10
+Nonces in ____  network are used to create unique identifiers for transactions to prevent double-spending/replay attacks but are NOT used to determine the selection of validators.
+
+A. Proof of Stake (PoS) 
+B. Delegated Proof of Stake (DPoS)
+C. DAG/Tangle
+D. All of the above 
+In Proof of Stake (PoS) networks and generally on other non-PoW networks, a nonce is a value included in the block header, used as part of the data hashing process to ensure unique transaction identification to prevent the same transaction from being confirmed and added twice to the blockchain by mistake. However, it does not directly influence validator selection. 
+
+In Proof-of-Work (PoW) networks, a nonce holds a dual function beyond merely thwarting replay attacks. Within PoW contexts, a nonce symbolizes a random figure incorporated within the block header. When hashed alongside the block's content/data, it yields a hash value that adheres to specified criteria, typically characterized by a certain count of leading zeros. This structure establishes a competitive arena for miners (distinct from validators in other consensus algorithms) to relentlessly compute varying nonce values using powerful computers and processors until producing a hash that falls beneath the threshold delineated by the network's difficulty algorithm, thereby successfully mining a new block and earning crypto rewards. In effect, the nonce in PoW networks play a critical role in selecting the validator or miner as well.
+
+9 / 10
+Which of the following is not a decentralized/public blockchain network?
+
+A. Bitcoin
+B. Hyperledger Fabric 
+C. Ethereum
+D. All of the above
+Hyperledger Fabric is a permissioned blockchain platform. Decentralized/public blockchain networks are open to anyone who wants to participate. They are not controlled by any single entity. Transactions on decentralized/public blockchain networks are recorded on a public ledger that is visible to everyone
+
+Hyperledger Fabric is a blockchain platform that provides a set of development tools typically useful for businesses to create their own private or consortium blockchain networks. Private or consortium blockchain networks are designed to be used by a specific group of participants, such as enterprises or government agencies that require higher levels of trust and privacy. They are more vulnerable to data tampering and fraud.
+
+10 / 10
+Which of the following is a layer 1 blockchain platform/network?
+
+A. Polygon
+B. Lightning Network
+C. Ethereum 
+D. All of the above
+Layer 1 blockchains are the base layer of the blockchain infrastructure. They are responsible for running the consensus protocol, processing transactions, and maintaining the distributed ledger. Layer 1 blockchains are typically public, permissionless, meaning anyone can interact with the blockchain and become a node in the network to validate transactions.
+
+Layer 2 blockchains are solutions that are built on top of layer 1 blockchains to improve the various features like scalability, transaction fees and privacy with the ultimate objective to enhance the performance of layer 1 blockchain and its ecosystem. A key value proposition of layer 2 solutions today is they process transactions off-chain and help maintain the core layer clutter-free and scalable. This allows layer 2 blockchains to usually offer faster transaction times and lower fees than layer 1 blockchains.

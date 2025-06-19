@@ -1,0 +1,108 @@
+
+1 / 10
+Which of the following is considered a layer 2 solution in blockchain?
+
+A. Sidechain 
+B. State channels 
+C. Rollups
+D. All of above
+Although all of the above options focus on similar objectives in blockchain technology such as improved scalability, interoperability, and reduced costs, there is a reason why sharding is considered a layer 1 solution or a solution that is incorporated into a blockchain protocol itself. 
+
+Sharding: Imagine a giant book where everyone writes down their transactions. Sharding is like dividing that book into smaller, manageable parts, each handled by a different group of people. Each group, or shard, processes its transactions. Sharding is a big change to the book itself, making it more efficient.
+
+Rollups: You write down most of the details in a separate notebook, but you keep a summary in the big book. This way, the big book doesn't get too crowded, and it's faster to read.
+
+State Channels: Imagine talking to a friend privately without writing anything in the book. You only update the book when you finish your conversation. It's like having private chats without everyone seeing them in the book.
+
+Sidechains: It's like having a different book (a sidebook) for certain types of transactions. You can do some transactions in this sidebook, which is connected to the main book. It helps keep the main book less cluttered.
+
+So, sharding changes the big book itself to make it faster and more efficient. Rollups, state channels, and sidechains are like tricks or tools you use to work with the big book without changing it much. They all aim to make transactions quicker and cheaper but in different ways.
+
+2 / 10
+How does a “wallet” primarily interface with the blockchain network
+
+A. By determining the consensus rules for validating transactions
+B. By allowing users to create and broadcast transactions using cryptographic keys 
+C. By generating blocks and adding them directly to the blockchain
+D. By acting as a storage for the entire transaction history of the blockchain
+In the blockchain ecosystem, a wallet serves as a user's personal interface or gateway to the blockchain network. Its primary function is to manage the user's cryptographic keys: a public key, which others can see and send funds to, and a private key, which remains confidential to the wallet's owner. When a user desires to send cryptocurrencies or engage in transactions, the wallet uses the private key to "sign" these transactions, thereby proving ownership and authenticity. Once signed, the transaction is broadcasted to the network for validation and eventual inclusion in a block.
+
+3 / 10
+Which of the following popular software clients are used for interacting with the Bitcoin and Ethereum blockchains respectively?
+
+A. Bitcoin - Bitcoin Core, Ethereum - Geth 
+B. Bitcoin - Nightshade, Ethereum - Nitro
+C. Bitcoin - Nitro, Ethereum - Nightshade
+D. Bitcoin - Parity, Ethereum - Electrum
+In the realm of blockchain, different networks have their specific clients tailored to their needs. Bitcoin Core is the reference implementation and a prevailing client used for the Bitcoin network. It plays a pivotal role in ensuring the integrity and security of the Bitcoin network. On the other hand, Geth (short for "Go Ethereum") is a popular client for Ethereum and is written in the Go programming language. While there are other clients available for both Bitcoin (Electrum) and Ethereum (Parity), Bitcoin Core and Geth are among the most widely used for their respective networks.
+
+4 / 10
+Which of the following are considered to be part of blockchain infrastructure?
+
+A. Layer 2 solutions, Node software
+B. Development tools like Truffle and Hardhat to build smart contracts and dapps
+C. Websockets and API providers
+D. All of the above 
+Blockchain infrastructure includes solutions that are the building blocks for the ecosystem to thrive. Although you would see some of the topics under blockchain infrastructure and components overlap with topics under blockchain architecture, interfaces, blockchain infrastructure largely refers to the tangible and intangible components and services that support the development, deployment, and maintenance of blockchain networks and applications.
+
+5 / 10
+Why are development tools/frameworks like Truffle, Hardhat and Anchor essential for blockchain development
+
+A. They are back-end tools for developers to test/deploy smart contracts and dapps seamlessly to deliver decentralized products and services for end users 
+B. They ensure the UI and UX of dapps are optimized
+C. They help reduce the transaction or gas fees for end users
+D. B & C
+Smart contracts serve as the backend logic for decentralized applications that are enabled through development frameworks and tools like Truffle and Hardhat. They are similar to the backend tools used for both traditional software development and blockchain platform development like Node.js, PHP etc. These development frameworks provide tools for writing, compiling, and deploying smart contracts. They offer environments and functionalities for testing smart contracts to ensure they operate correctly and securely. They, further, facilitate seamless integration of applications with the respective blockchains while also enabling interoperability with other chains so assets/solutions can be moved efficiently.
+
+6 / 10
+In the evolving landscape of blockchain infrastructure, how do decentralized storage networks differentiate themselves from traditional data storage mechanisms?
+
+A. By utilizing proof-of-work algorithms to create new blocks of storage
+B. By ensuring that only nodes with a certain number of tokens can access stored data
+C. By fragmenting data into chunks and distributing them across nodes, ensuring redundancy and resistance to censorship without centralized control 
+D. By focusing solely on storing smart contract codes rather than user data
+Decentralized storage networks, such as IPFS (InterPlanetary File System) or Filecoin, are designed to distribute and store data across multiple nodes in a network within each chunk, ensuring data availability and redundancy. Unlike traditional cloud storage solutions that rely on centralized servers, decentralized storage leverages the power of multiple participants to create a robust and censorship-resistant way of storing and accessing data. This infrastructure aims to offer enhanced security, reduced susceptibility to single points of failure, and often, more cost-effective solutions for data storage and importantly, democratizes access and control over your own data.
+
+7 / 10
+What necessitated layer 2 blockchains and solutions on top of layer 1 blockchains?
+
+A. To improve scalability issues of blockchain 
+B. To improve privacy issues in public blockchain
+C. To bring down the transaction costs of layer 1 blockchain
+D. All of the above 
+Layer 2 solutions emerged due to the limitations of speed, interoperability and privacy on layer 1 blockchains. Layer 1 networks, like Ethereum, often struggled with slow transaction processing and lacked robust privacy features. Ethereum, for instance, processes an average of 15 transactions per second or TPS while Web2 peers like Visa processes an average of 5000 TPS. Due to low speed, platforms like Ethereum experience network congestion during periods of high traffic leading to spike in transaction costs and poor UX. Further, public chains like Ethereum are inherently transparent which makes it challenging for say, government agencies/defense sector to maintain transactions on them.
+
+Layer 2 solutions were introduced to significantly boost transaction speeds, reduce costs, and enhance privacy, thereby making blockchain technology more efficient, user-friendly, and suitable for a broader array of applications. They offer the scalability needed to support growing demand while partially adhering to the core principles of decentralization and security. Polygon and rollups are good examples of layer 2 solutions that are built atop Ethereum for faster transaction processing and low costs. State channels and zk-proofs are good examples of privacy-maintaining solutions on blockchains. Thus far, layer 2 solutions play a crucial role in making blockchain technology more practical and adaptable for a wide range of real-world use cases.
+
+8 / 10
+Which of the following best describes the difference between on-chain and off-chain solutions in the context of blockchain technologies?
+
+A. On-chain solutions refer to private blockchains while off-chain solutions refer to public blockchains
+B. On-chain solutions pertain to data and transactions stored directly on the main blockchain, while off-chain solutions involve data and transactions processed outside of the blockchain 
+C. On-chain solutions are less secure than off-chain solutions because they are more transparent
+D. Off-chain solutions require the consensus of all network participants for any data addition, whereas on-chain solutions do not
+On-chain solutions involve processes and transactions that are recorded directly on the blockchain. These transactions are validated by network participants and, once added, become immutable. Because every transaction is recorded on the blockchain, on-chain solutions can sometimes be slower and more expensive due to the associated transaction fees.
+
+Off-chain solutions, on the other hand, pertain to any processes or data-handling that happens outside of the blockchain but can still be related to the blockchain ecosystem. These solutions can be faster and more scalable because they don't require the consensus of the network for validation. They can be finalized on the main chain later if necessary. Examples of off-chain solutions include state channels and sidechains.
+
+Option A is incorrect because the distinction between private and public blockchains is not based on on-chain or off-chain classifications. Option C is misleading; on-chain solutions are typically transparent, but that doesn't make them less secure. Option D is also incorrect; it's on-chain solutions that require consensus, not off-chain ones.
+
+9 / 10
+In the context of blockchain technology, what primary role do websockets play?
+
+A. Encryption of blockchain data
+B. Validating new blocks on the network
+C. Real-time event listening and data updates 
+D. Storing backups of the blockchain
+Websockets provide a persistent connection between the client and server, allowing for real-time data transmission without the need for continuous polling. In blockchain applications, websockets are often used to listen for events like new block additions, transaction confirmations, smart contract events, balance changes and other updates. This enables applications and users to receive instant notifications and updates without constantly querying the blockchain, thus making the system more efficient and responsive.
+
+This is essential for applications or services that need instantaneous updates, such as when a new block is added or when a specific transaction is processed. In contrast,RPC nodes are request-driven, meaning you make a specific request and then get a response. Each RPC request establishes a new connection, fetches or sends the data, and then closes the connection. It's a more discrete, one-off method of communication unlike websockets.
+
+10 / 10
+What is the primary role of a wallet in blockchain?
+
+A. Storing actual cryptocurrencies physically 
+B. Acting as a bridge between users and the blockchain network 
+C. Storing a copy of the entire blockchain ledger
+D. Determining the consensus mechanism of the blockchain
+A blockchain wallet, often simply called a "wallet," primarily functions as an interface or bridge between users and the blockchain network, at times, with the help of software clients like Geth and Bitcoin Core. It allows users to make transactions, check balances, and manage their cryptographic keys. While the name "wallet" might suggest that it holds physical cryptocurrencies, it doesn't store the coins per se. Instead, it holds cryptographic keys: a public key, which is like an address people can see and send funds to, and a private key, which is known only to the owner and is used to sign transactions and access funds

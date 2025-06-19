@@ -1,0 +1,108 @@
+What is the primary reason for keeping a safe backup of your passphrase (or seed phrase/backup codes) when using blockchain wallets, even though other security measures mentioned here may also apply?
+
+A. To recover your account if you lose your private keys 
+B. It can regenerate private keys, allowing full wallet restoration if compromised
+C. Some wallets use dual-layer security where you need both the passphrase and private keys to access/authorize transactions from your wallet 
+D. All of the above
+The primary reason for keeping a safe backup of your passphrase, seed phrase, or backup codes when using blockchain wallets is to recover your account if you lose your private keys. This is vital as losing private keys typically means irreversible loss of access to the wallet and its contents. Additionally, backups can assist in regenerating private keys, facilitating full wallet restoration if compromised. Some wallets also implement dual-layer security, requiring both the passphrase and private keys for accessing or authorizing transactions, enhancing overall wallet security. However, the foremost purpose of the backup is to ensure account recovery in the event of lost private keys. Anyone with your private key can steal funds from your wallet account unless your wallet uses dual-layer encryption.
+
+2 / 10
+Safe deposit boxes (or bank lockers) are secured by a key that only the owner (custodians like banks) have access to. Similarly, what protects digital assets owned by users themselves on a blockchain?
+
+A. Consensus mechanism
+B. Blockchain network’s cryptography
+C. A pair of public and private keys 
+D. A & C
+While security protocols of a blockchain platform protect your assets, the ones you personally acquire remain yours and it is your responsibility to protect them. Remember, your digital asset isn't stored in a specific location on the blockchain. Instead, the blockchain has a record that your address, derived from your public key, is associated with that asset. You use your private key to prove ownership and control over that asset while the public key is similar to your mailbox/email address.
+
+Now let’s come to the lockbox example. Imagine a lockbox where anyone can see the lock (public key) where your money is stored. However, only the person with the unique key (private key) can unlock it and access the contents. In the world of cryptography, the public key is akin to this visible lock (or an email address), open to everyone—it allows people to send encrypted messages or verify transactions. The private key, on the other hand, is the secret key (like the password to the email address) that can decrypt those contents and allows you to perform activities like authorizing transactions. Safeguarding this private key is crucial, as anyone possessing it can unlock and steal contents within the digital lockbox.
+
+In the blockchain world, the lockbox comes in the form of both physical and digital wallets that can be used to store and access your assets.
+
+3 / 10
+Beyond the consensus mechanism, which of the below is the most ideal technique sharded blockchains can employ to maintain the high security levels that public blockchains are known for?
+
+A. Auto-rotation of nodes 
+B. Selecting a leader node in each shard
+C. Increasing the hardware specs of nodes making it difficult for average users to run a node
+D. Mining
+A sharded blockchain like Shardeum divides its data into smaller pieces called "shards". Each shard contains a portion of the blockchain's transaction history and is managed by a subset of the network's nodes. Instead of every node processing every transaction, nodes only process transactions for their specific shard to help increase the network's capacity and speed.
+
+It is important to note that unlike plasma and other layer 2 solutions that provide additional capabilities, sharding involves making fundamental changes to the protocol or base layer. So, the security of a sharded network depends on the security of each shard. That’s why auto-rotating nodes in sharded blockchains is crucial for security because it prevents any single node or group of nodes from gaining consistent control over a specific shard. If nodes stayed in one shard indefinitely, malicious actors could target and compromise that shard's transactions. By frequently rotating nodes among shards, the network ensures unpredictability and reduces the chance of sustained attacks on particular shards.
+
+4 / 10
+How can Proof-of-Stake (PoS) networks, such as Ethereum, achieve a security level comparable to that of Proof-of-Work (PoW) networks like Bitcoin?
+
+A. By allowing anyone to run nodes using internet connection and a computer
+B. Through a system where validators stake assets as collateral 
+C. By relying on physical hardware for validation
+D. By increasing transaction fees
+Indeed, while increased user participation in a blockchain's daily operations boosts decentralization, it doesn't inherently offer a robust deterrent against malicious activities or node misconduct.
+
+ 
+
+Proof-of-Work requires nodes (miners) to solve complex computer puzzles to validate and add new transactions to the blockchain. Key to successfully solving these puzzles is the power of the computers/servers used by miners. The more powerful the computers, the easier to solve these puzzles. The first miner to solve the puzzle gets to add a block and is rewarded with cryptocurrency. This process ensures miners are incentivized to act honestly because they stand to gain more from the rewards of legitimate mining than they would from attacking the system. Launching an attack would also be expensive due to the high computational costs involved.
+
+In Proof-of-Stake, validators are chosen to create new blocks based on the number of coins they hold and are willing to "stake" or lock up as collateral. Here, validators (instead of miners) have a vested interest in correctly processing transactions. Misbehaving could lead to their staked coins being confiscated or slashed. This financial commitment deters malicious behavior since validators stand to lose significant personal assets. Unlike PoW, PoS doesn't require vast amounts of energy. While this is an environmental benefit, it also means that validators are not under constant pressure to sell their rewards to cover costs, promoting stability.
+
+5 / 10
+Asides from hashing, which other key cryptographic method does blockchain technology employ to ensure that data doesn’t change during the broadcast of validated transactions between nodes and throughout all blockchain transactions for that matter?
+
+A. Key exchange
+B. Public-key encryption 
+C. Digital signatures 
+D. All of the above
+Digital signatures use a combination of private and public keys to validate the authenticity and integrity of a message. They ensure that data hasn't been tampered with during transmission. When a user signs a message with their private key, others can use the user's public key to verify the signature and ensure data integrity in a trustless manner.
+
+ 
+
+Think of it like a digital "stamp" that you put on a message or transaction. This stamp proves that the message came from a legitimate node or validator involved in validating transactions and hasn't been tampered with by anyone else. Others can check this stamp (using your public key) to ensure the message is genuinely from you.
+
+6 / 10
+Why do experts often emphasize addressing security issues at Layer 1 of a blockchain rather than relying solely on Layer 2 blockchains and other scaling solutions?
+
+A. Layer 1 enhancements are less complex and inexpensive to implement
+B. Only Layer 1 is susceptible to external cyber-attacks
+C. Layer 1s is the foundational layer known to provide a very high level of security and decentralization, benefitting the entire network and all dapps built upon it 
+D. All of the above
+Enhancements at Layer 1 of a blockchain, being the base layer, act as the bedrock of its ecosystem’s security. By strengthening this foundation, the entire blockchain ecosystem — including all applications, smart contracts, and Layer 2 solutions built on top — inherits this robustness. A secure Layer 1 means that every transaction, regardless of its origin or destination within the ecosystem, operates under a consistent and strong security paradigm. This holistic protection fosters trust and stability throughout the network.
+
+While Layer 2 solutions can help improve the speed, value and transaction efficiency, they often introduce additional complexities and potential vulnerabilities not present at the base layer. Ensuring the base layer is secure and highly decentralized, minimizes these complexities and allows for a consistent security model across the entire network. Further, layer 2 networks can't entirely replicate the innate security guarantees offered by a well-established Layer 1 network which has often withstood numerous attack vectors. 
+
+7 / 10
+Which term is commonly associated with the practice of prioritizing certain transactions on a blockchain by reordering them for potential financial gains, especially in the context of DeFi platforms?
+
+A. Staking rewards
+B. Token burning
+C. MEV (Miner Extractable Value) 
+D. PoS (Proof of Stake)
+MEV, or Miner Extractable Value, refers to the profit a validator can make through their ability to include, exclude, or reorder transactions within the blocks they produce as a result of public blockchain’s inherent property - transparency. One of the most common manifestations of MEV is front-running, where validators prioritize or even insert their own transactions to take advantage of favorable trade opportunities on decentralized exchanges before others can. For instance, if a large trade is about to significantly change the price of a token, a validator might front-run this trade to benefit from the anticipated price movement. This practice can compromise fairness and trust in decentralized finance (DeFi) platforms. 
+
+Things often get out of hand when the same front-running is done by malicious actors who see a transaction (large ones typically) before it is confirmed and then place their own transaction ahead of it to profit from the price difference. Here, they not only seek to gain an unfair advantage over other users but also essentially manipulate the larger market causing losses to the general public.
+
+8 / 10
+Consider a malicious attacker creating multiple pseudonymous identities by taking control over a node or group of nodes. These nodes are then used to spread misinformation, disrupt consensus, or attempt to influence the network's decisions. What is the nefarious act known as in the context of blockchain?
+
+A. Sybil attack 
+B. 51% attack
+C. DDoS attack
+D. Spam attack
+The primary goal of a Sybil Attack is to undermine the network's integrity by flooding it with a large number of malicious nodes, often controlled by a single attacker. The attacker aims to control or disrupt the network by having a significant presence, but not necessarily take over the network by claiming majority of the network's computational or staking power like in the case of 51% attacks.
+
+9 / 10
+Which is the most battle-tested, highly secure hashing algorithm used by various blockchain networks to handle transactions and record data?
+
+A. Scrypt 
+B. MD6
+C. CryptoNight
+D. SHA-2 and SHA-3 
+Without getting too technical, both SHA-2 and SHA-3 are methods to create unique representations of data. They're designed so that it's computationally infeasible to find two different sets of data that produce the same hash or to reverse the process. SHA-3 was developed as an addition to SHA-2, more than as an alternative. So in a nutshell, hashing methods like SHA-256 (SHA-2 family) and Keccak-256 (SHA-3 family) have been found to be highly secure and immutable. The other options in the above list are newer methods of hashing, so their level of security will be scrutinized in the future.
+
+10 / 10
+As modern blockchain networks strive to reduce transaction fees, which attack type lets attackers cheaply flood the network with low cost requests to slow/disrupt it?
+
+A. Eclipse attack
+B. Replay Attack
+C. Timejacking
+D. DDoS attack 
+DoS and DDoS attacks have become an issue for even the latest L1 chains focused on scalability and low gas fees. These attacks involve flooding a network with many small transaction requests inexpensively, typically using bots, causing it to become slow or entirely unreachable for legitimate users. Consider a DDoS attack like rapidly dumping buckets of water into a sink at capacity; the overwhelming rush can easily cause it to spill over and malfunction its surroundings.

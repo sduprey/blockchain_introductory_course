@@ -1,0 +1,100 @@
+Which feature ensures that transactions on the blockchain are processed quickly?
+
+A. Scalability
+B. Transparency
+C. Throughput 
+D. Fairness
+Throughput or TPS or Transactions Per Second refers to the number of transactions a system can process in a given amount of time. A high throughput ensures that transactions are processed quickly on the blockchain.
+
+And note, scalability is the ability of a blockchain network to handle a large number of transactions without sacrificing performance. It is a related metric, but it is not the same as throughput. A scalable blockchain network can process a large number of transactions, but it may not be able to do so quickly.
+
+2 / 10
+In public blockchains, what permanent consequence occurs when validators fail to achieve consensus on the upcoming blocks or transactions to be appended?
+
+A. The blockchain splits into two separate chains (hard fork) 
+B. The blockchain is temporarily halted until there is a consensus to ensure the network stays immutable 
+C. The blockchain maintains a single chain, but introduces stricter rules that not all nodes need to adopt immediately (soft fork)
+D. The validators with the most resources get to decide which blocks to add to the blockchain
+A hard fork is a type of blockchain fork that occurs when a disagreement among miners or validators leads to a change in the blockchain protocol causing two different chains. Example: Ethereum and Ethereum Classic. This can happen for a variety of reasons, such as when nodes disagree about whether or not to implement a “significant” change proposed by the majority of  network nodes (nodes collectively run the network) so much so that it forces dissenting nodes to form a new chain. In the two chains - one chain will follow the old protocol and the other chain follows the new protocol. Validators and users can choose to follow either chain, but the two chains are incompatible with each other.
+
+A soft fork is a type of blockchain fork that occurs when typically minor updates or changes are made to the blockchain protocol in a way that remains backward-compatible. In other words, the new rules are designed to be more restrictive or inclusive than the existing ones but do not create a separate chain. This means that validators and users who upgrade can still participate in the same network, while those who do not upgrade may continue to operate under the old rules however ultimately choose to upgrade later on. Bitcoin’s SegWit is an example of a soft fork.
+
+3 / 10
+Which feature in blockchain ensures that once a transaction is confirmed, it cannot be reversed?
+
+A. Throughput
+B. Scalability
+C. Latency
+D. Finality 
+Finality is the turnaround time between submitting a transaction to the network and knowing that the transaction is irreversible.
+
+Note, that latency and finality times in blockchains are inter-related. Latency refers to the turnaround time between a user submitting a transaction and the network confirming or committing to that transaction in general.
+
+4 / 10
+Which of the below is an ideal and a highly decentralized solution for scalability issues in public blockchains?
+
+A. Increasing the processing power of existing machines
+B. Adding more low end machines/nodes 
+C. Increasing the collateral/staking amount of nodes
+D. Keep a buffer of resources based on historical demand
+Decentralization is one of the core principles of blockchain technology. To truly maintain and enhance decentralization while addressing scalability, adding more nodes (machines) to the network is the most fitting solution. This approach ensures that there's no central point of control or failure and makes it harder for any single entity to take over or control the network. Also, with the option B, a network can scale horizontally instead of vertically to ensure as many average people are able to participate in its day to day operations as possible.
+
+Option A, while it might help with processing speed, does not necessarily improve decentralization because only a few large entities could afford to have highly powerful machines. Option C might make the network more secure but can inadvertently lead to centralization, as only entities with large amounts of funds can participate. Option D, keeping a buffer based on historical demand, is more about resource management and does not directly address decentralization or scalability in the context described.
+
+5 / 10
+Which of the following best describes the average transactions per second (TPS) comparison between a centralized network like Visa and typical public blockchain networks?
+
+A. Visa processes significantly more transactions per second than public blockchain networks 
+B. Public blockchains process more transactions per second than Visa
+C. Visa and public blockchains process transactions at a similar rate
+D. Visa's transaction rates are only slightly higher than that of public blockchains
+Visa's payment system is known to handle an average of approximately 1,700 transactions per second, with the capability to handle up to 24,000 TPS during peak times. In contrast, typical blockchain networks, especially public and decentralized ones handle a much smaller number of transactions per second. Even the layer 2 blockchains and more recent L1 blockchains focused on addressing scalability issues processes an average of 400 TPS. While there are certain blockchain solutions that claim higher TPS rates, when compared to centralized systems like Visa, they often still lag in throughput capacity. This difference in transaction processing capability is one of the challenges that many blockchain projects are aiming to address to enhance scalability.
+
+6 / 10
+What is a primary consequence of a blockchain network relying on high staking requirements and increased processing power (vertical scalability) while having limited throughput and scalability?
+
+A. Improved network decentralization 
+B. Reduced transaction fees for users
+C. Enhanced transaction privacy and anonymity
+D. Network congestion leading to high and unpredictable fees for end users 
+When a blockchain network relies heavily on increasing the processing power (vertical scalability) and has high staking requirements, it tends to centralize the network around a few high-powered nodes or participants with significant capital. This scenario can cause fewer entities to operate nodes due to the high resources required for operation. Consequently, this reduces the overall number of nodes validating and processing transactions, leading to lower throughput. 
+
+As the number of operational nodes decreases and scalability is limited, the network can't efficiently grow or adjust to accommodate a higher transaction volume. The congestion from limited capacity and high operational costs translates to high fees for end users, as they have to pay more to ensure their transactions are processed in a timely manner, leading to unpredictable and escalated transaction costs.
+
+7 / 10
+Which feature of blockchain and smart contract platform represents this statement “A decentralized exchange (DEX) can be combined with a decentralized lending protocol to create a new application that allows users to borrow and lend assets while also trading them.”
+
+A. Immediate finality
+B. Byzantine Fault Tolerance (BFT)
+C. High throughput
+D. Atomic Composability 
+Composability in the blockchain context means that different decentralized applications (dapps) or protocols can seamlessly interact and build upon one another, much like how Lego pieces can fit together to form various structures. This modular nature allows developers to use existing protocols as building blocks for creating more complex financial products or services. In the example provided, a DEX and a decentralized lending protocol can be combined, showcasing the power and flexibility of composability in the DeFi ecosystem.
+
+8 / 10
+Which feature addresses the potential of a public blockchain to handle increased transaction loads?
+
+A. Atomic composability
+B. Decentralization
+C. Finality
+D. Scalability 
+Scalability, a foundational concept in technology, takes on critical significance within the blockchain landscape. It denotes a system's innate capability to efficiently handle its existing workload while also gracefully accommodating future growth. In the context of blockchain, scalability specifically refers to the network's ability to manage escalating transaction volumes. As blockchain adoption surges, the central question revolves around whether the network can sustain its efficiency, low fees, and decentralization while welcoming a growing user base and expanding range of applications. In essence, blockchain scalability underscores the network's readiness to not only address today's demands but also embrace a future marked by heightened activity while upholding its core tenets of security, decentralization, and accessibility.
+
+9 / 10
+Why is high fairness important in a blockchain network?
+
+A. So transactions can be ordered and processed in a way that can maximize a user or validator’s profit
+B. It prevents certain participants from gaining undue advantage by manipulating transaction order 
+C. It determines the token price on exchanges
+D. B & C
+In blockchain networks, the order in which transactions are validated, processed and included in a block can affect various aspects, such as the outcome of trades or the effectiveness of smart contract interactions or even the larger market dynamics. Fair ordering ensures that no participant can consistently front-run or otherwise manipulate the order of transactions to their advantage, promoting a more equitable and trustable system for all participants.
+
+10 / 10
+"Blockchain trilemma” or “Scalability trilemma," is a longstanding issue that hinders the mass adoption of blockchain networks. Which three features are encompassed by this trilemma in public blockchains?
+
+A. Security, decentralization and scalability 
+B. Privacy, decentralization and scalability
+C. Security, decentralization and low fees
+D. Security, scalability and interoperability
+The scalability trilemma in blockchain represents the challenge of balancing decentralization, security, and scalability. Increasing one aspect can often compromise the others. Achieving high decentralization and security while scaling to handle a large number of transactions efficiently remains a complex puzzle for blockchain networks. Since decentralization and security are the 2 embedded features of the blockchain technology, older blockchains like Bitcoin and Ethereum didn’t focus too much on the scalability part. 
+
+However since Ethereum introduced smart contracts and decentralized applications, the use of blockchains in various industries have expanded considerably, necessitating speed and scalability while maintaining low costs. Newer blockchains like Shardeum aim to solve the scalability trilemma from the ground up to enable mass adoption of the industry and the larger Web3 ecosystem. In the meantime, layer 2 solutions and other stop gap measures were introduced to absorb the current demands in the industry while partially fulfilling the core principles of blockchain.

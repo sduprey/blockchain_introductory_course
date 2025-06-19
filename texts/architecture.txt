@@ -1,0 +1,104 @@
+
+1 / 10
+What type of blockchain network or platform allows anyone to participate in running nodes, anyone can read from or write to and is permissionless?
+
+A. Layer 1 blockchain
+B. Layer 2 blockchain
+C. Public blockchain 
+D. Consortium blockchain
+A public blockchain is a type of blockchain that is open to anyone to participate in. Anyone can read from or write to a public blockchain i.e. it is open-source. Public blockchains are decentralized, meaning that they are not controlled by any single entity.
+
+Public blockchains are secured by cryptography and consensus mechanisms. Cryptography is used to protect the data on the blockchain from unauthorized access. Consensus mechanisms are used to ensure that all nodes on the blockchain network agree on the state of the ledger at any given point in time
+
+This is in contrast to private systems which are centralized. For instance, an OS like iOS or Android is more vulnerable to censorship and interference. Further, transactions on a private OS are not publicly visible, which makes it easier to commit fraud and manipulate the system. They are also permissioned, meaning that only authorized users can participate in the network with high costs.
+
+2 / 10
+What is the primary purpose of improvement proposals or blockchain standards like EIP or BIP (Ethereum/Bitcoin Improvement Protocols) in the Ethereum/Bitcoin ecosystem?
+
+A. To burn native coins - ETH or BTC - and reduce their circulation in the market
+B. To formally suggest improvements or feature proposals for the network to adopt based on community consensus 
+C. These are general guidelines for developers so they build products on blockchain in a standard and interoperable manner
+D. B & C 
+Blockchain standards or improvement proposals like EIP is a structured mechanism that allows individuals within the particular blockchain community to propose, discuss, and possibly implement enhancements or novel features for the network protocol. They not only provide technical roadmaps for proposed changes but also establish clear standards, guiding developers in creating interoperable and standardized tools, applications, and smart contracts. This cohesive framework ensures transparency in protocol evolution, promotes synergy in the ecosystem, and fosters community-driven development, ensuring that the network  remains adaptable and resilient.
+
+3 / 10
+What is the role of Virtual Machines like Ethereum Virtual Machine (EVM) in blockchain architecture?
+
+A. Virtual Machines ensure the security and isolation of smart contracts in blockchain
+B. Virtual Machines helps to execute smart contracts and applications in a decentralized and efficient manner
+C. Virtual machines enhance interoperability by providing a standardized environment for executing smart contracts
+D. All of the above 
+Blockchain Virtual Machines serve as the backbone of blockchain. They guarantee the secure isolation of smart contracts preserving the integrity of blockchain networks. Additionally, they empower the decentralized and efficient execution of smart contracts and applications enabling trustless automation across the blockchain. Furthermore, Virtual Machines play a vital role in fostering interoperability by offering a standardized execution environment for smart contracts. This standardization promotes seamless interaction and the sharing of functionality among diverse blockchains within the broader blockchain ecosystem
+
+4 / 10
+What is the primary purpose of a smart contract in a blockchain network?
+
+A. Speeding up the transaction times of commercial contracts between two parties
+B. Automatically adding blocks in a blockchain
+C. Speeding up the confirmation time of transactions
+D. Automatically executing predefined instructions when specific conditions are met 
+Smart contracts are self-executing contracts that are stored on the blockchain. They can be used to automate a wide range of transactions, such as financial transactions, supply chain management, and voting. Smart contracts serve as the backend logic for decentralized applications (dapps), automating and ensuring consistent execution of predefined operations. By removing intermediaries and providing transparent, immutable processes, they enhance the efficiency, trustworthiness, and user experience of dapps.
+
+5 / 10
+In the Ethereum blockchain, if someone were describing the overall structure and various levels of data organization, which of the following statements is accurate?
+
+A. The 'Current State' is the balance of the most recently created Ethereum account, while the 'Global State' refers to the sum of all Ether across all accounts.
+B. The 'Account State' includes data such as the number of blocks on the blockchain and the timestamp of the last block, while the 'Contract State' includes the Ether price on exchanges
+C. The 'Global State' represents the entire state of the blockchain at a given moment, the 'Current State' emphasizes its latest status, the 'Account State' pertains to individual balances, nonces, and related data for Ethereum addresses, and the 'Contract State' refers to the specific code and storage for smart contracts 
+D. The 'Contract State' refers to a list of all smart contracts, the 'Account State' is a real-time representation of all Ethereum accounts, the 'Global State' is the combined hash rate of all miners, and the 'Current State' is the list of pending transactions
+Imagine a vast library with a tradition:
+
+Global State: Every year, on December 31st, the library takes a detailed photograph of its entire collection. This photograph shows every book, manuscript, map, photograph, recording, etc., that the library holds on that specific day. Each year's photograph is stored in a special album, allowing anyone to see the exact contents of the library at the end of each year.
+
+Current State: Now, when you walk into the library on any given day, you see the live scene of the library with people reading, new books being shelved, and some books being checked out. This live scene, which can change from minute to minute, represents the library's 'Current State'.
+
+Account State: Every person who visits the library has a special card that tracks which books they've borrowed, how many times they've visited, and any fines they might owe. This card is like an 'Account State' - specific to an individual, detailing their interactions and status.
+
+Contract State: There's a special section in the library where groups of people can create collaborative stories. Each group has rules (like a contract) about who can write, how often, and in what genre. As people contribute to these stories, the narrative evolves. The current version of each story, along with its associated rules, represents its 'Contract State'.
+
+6 / 10
+Choose the correct answer. Which consensus algorithms are used by L1 blockchains, Bitcoin and Ethereum respectively?
+
+A. Bitcoin - Proof of Stake (PoS), Ethereum - Proof of Work (PoW)
+B. Bitcoin - Proof of Work (PoW), Ethereum - Proof of Stake (PoS) 
+C. Bitcoin - Proof of Work (PoW), Ethereum - Proof of History (PoH)
+D. Bitcoin - Proof of Quorum (PoW), Ethereum - Proof of Stake (PoH)
+Bitcoin, introduced in 2008, is a decentralized blockchain platform that operates on a peer-to-peer network. Central to its design is the Proof of Work (PoW) consensus algorithm, which requires participants to solve compute-intensive random puzzles to validate and record transactions. This mechanism not only ensures security and integrity but also incentivizes miners with rewards, fostering a self-sustaining system enabling peer-to-peer payments without middlemen.
+
+Initiated in 2013, Ethereum emerged as a pioneering platform, elevating the potential of blockchain beyond Bitcoin's primary focus on peer-to-peer transactions and value storage. In 2022, in a pivotal industry event dubbed "The Merge," Ethereum transitioned from the energy-intensive Proof of Work (PoW) to the more sustainable Proof of Stake (PoS) consensus model. This shift not only showcased technological evolution but also addressed the broader perception of blockchain's environmental impact. Instead of miners in PoW,  validators are chosen to validate and propose blocks in PoS,  based on the amount of native coins they've staked or offered as collateral.
+
+7 / 10
+Which key property in blockchain helps it to achieve both these desired outcomes - high fairness and prevent double-spending?
+
+A. Timestamp 
+B. Block Hash
+C. Nonce 
+D. Merkle Tree
+While consensus mechanisms, hashing, validators, merkle tree plays an important role here, timestamp is the key architectural feature in blockchain that maintains chronological recording of transactions while at the same time helping to prevent double spending frauds.
+
+8 / 10
+Which statement accurately describes the relationship between ERC standards (Ethereum request for Comments) and EIPs in the Ethereum ecosystem?
+
+A. ERC standards are developed independently and primarily deal with smart contract optimization
+B. ERC standards, like ERC-20 and ERC-721, are types of EIPs that specifically define token standards on Ethereum 
+C. EIPs are exclusively for updating Ethereum's core protocol, whereas ERC is a standard for Ethereum's governance model 
+D. ERC is Ethereum's consensus algorithm, while EIPs are a subset of ERC
+EIP stands for Ethereum Improvement Proposal, and it's a design document that provides a concise technical specification of a feature or change and the rationale behind it for the Ethereum platform. ERC, which means Ethereum Request for Comments, is a subset of EIPs. ERCs specifically propose standards related to tokens. Notable examples include the ERC-20 standard, which has become the blueprint for creating fungible tokens (like many of the cryptocurrencies), and the ERC-721 standard, which is used for non-fungible tokens (NFTs). Thus, while all ERCs are EIPs, not all EIPs are ERCs.
+
+9 / 10
+In which layer of blockchain architecture do smart contracts and dapps primarily operate while the end users directly interact with?
+
+A. Application Layer 
+B. Data Layer
+C. Network Layer
+D. Consensus Layer 
+The application Layer is where decentralized applications (dapps) and smart contracts reside and execute. This layer interacts directly with end-users and is built on top of the more foundational layers of the blockchain, such as the consensus and data layers, which handle the core functionalities of the network.
+
+10 / 10
+Which of the following reasons explains why specialized sandbox environments called testnets or test networks are crucial for blockchain platforms?
+
+A. They help in developing and deploying smart contracts
+B. They help make blockchain platforms energy efficient
+C. They provide environments to simulate the blockchain network for testing purposes before deploying on the mainnet, which involves real world value 
+D. They are one of the protocols to be followed in the blockchain industry
+Testnets are crucial for blockchain development, providing a safe, cost-effective sandbox for developers. Deploying untested code on the mainnet, given blockchain's immutable nature, can lead to irreversible bugs or vulnerabilities, risking fund loss. On platforms like Ethereum, interactions, even during testing, entail real gas fees; these costs can accumulate. Testnets alleviate this by offering simulated test tokens for experimentation, ensuring that applications are both economically tested and primed for mainnet deployment without real-world consequences.

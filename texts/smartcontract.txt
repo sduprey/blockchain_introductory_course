@@ -1,0 +1,104 @@
+What is the term used to refer to the fee paid by end users to execute a function in a smart contract such as transferring tokens, voting in a DAO or minting an NFT?
+
+A. Maker Fee
+B. Taker Fee
+C. Gas Fee 
+D. MEV (maximal extractable value)
+On smart contract networks that double up as L1 blockchains like Ethereum and Shardeum, the term "gas" is used to describe the unit of computational effort required to execute operations, like making a transfer or executing a smart contract. The "gas fee" is the cost of this effort and is determined by multiplying the gas used by the gas price set by the sender. This gas fee is essentially the transaction fee on the network. Gas fee, additionally, can serve as a measure to prevent spammy or malicious behavior on the network by making it costly to conduct such activities.
+
+Note, transaction fees are a broader term applicable to blockchain networks. They represent the cost associated with making a transaction on the network. This fee compensates the network validators or miners for their work in processing and confirming transactions. “Gas fees" are a type of transaction fee,  while "transaction fee" is more general and can be applied to any blockchain network transaction.
+
+2 / 10
+How exactly did Ethereum elevate the potential of blockchain technology pioneered by Bitcoin? Choose the correct answer.
+
+A. Ethereum offered an alternative cryptocurrency called Ether or ETH as against Bitcoin’s BTC expanding the cryptocurrency market
+B. Ethereum revolutionized the way real-world applications function by introducing smart contracts and decentralized applications, eliminating the need for intermediaries 
+C. Ethereum significantly enhanced the transaction speed of public blockchain technology
+D. Ethereum advanced the security of public blockchains
+While Bitcoin has scripting capabilities, Ethereum is most widely known for introducing a robust platform specifically for creating and deploying smart contracts and dapps. Smart contracts, self-executing digital agreements, operate on the Ethereum Virtual Machine (EVM), ensuring secure, unbiased execution. The EVM interprets these contracts in an isolated environment, enhancing security. Additionally, dapps, open-source applications on Ethereum and other smart contract platforms, promote transparency and resilience, contrasting centralized apps prone to single-point failures and data abuse. Together, these innovations challenge traditional systems, heralding a decentralized future.      
+
+Ethereum has unlocked unprecedented potentials in sectors like finance, governance, and entertainment, leveling the playing field for all participants. As blockchain adoption grows, Ethereum's pioneering innovations remain central, illustrating how technology can foster trust, efficiency, and democratization in various applications.
+
+3 / 10
+How are smart contract vulnerabilities typically exploited?
+
+A. By changing the underlying blockchain code
+B. By accessing the state database of the blockchain
+C. By accessing the sensitive snapshots of the blockchain state
+D. By taking advantage of poorly written contract code 
+Smart contract vulnerabilities are most commonly exploited by taking advantage of flaws or loopholes in the contract's code. Attackers can manipulate the contract in ways not anticipated by the developer, potentially leading to unauthorized access or actions. Since smart contracts are immutable once deployed, ensuring they are robust and secure from the outset is crucial. Options A, B, and C typically involve higher-level access or a different nature of attack on the blockchain network itself rather than exploiting a smart contract specifically.
+
+4 / 10
+Which of the following best describes a complex smart contract?
+
+A. A contract that autonomously performs a series of actions based on external data inputs and has multiple conditional outcomes. 
+B. A contract that executes transactions, like transferring cryptocurrency between two parties.
+C. A contract that involves basic arithmetic operations.
+D. A contract that is used for standard token creation on a blockchain.
+Option A is a complex smart contract involving autonomous execution of various actions, integration with external data (possibly through oracles), and multiple conditional pathways depending on different inputs or states.
+
+Option B describes a simple smart contract. Basic transactions like direct transfers of cryptocurrency typically involve straightforward logic and are examples of simple smart contracts.
+
+While basic arithmetic operations can be part of a smart contract, this alone does not define a complex smart contract. Complex contracts usually involve more intricate logic and interactions. So option C is incorrect.
+
+Standard token creation, such as ERC-20 tokens on Ethereum, generally follows a predefined template and is considered a relatively simple contract, not complex. Therefor, option D is also incorrect.
+
+5 / 10
+In the context of Ethereum dapp development, how is the Solidity programming language best characterized?
+
+A. Front-end design tool
+B. Database management system
+C. Smart contract programming language 
+D. User interface integration framework
+Solidity is a high-level, statically-typed programming language specifically designed for writing smart contracts on Ethereum and other blockchain platforms that support the Ethereum Virtual Machine (EVM). Unlike front-end tools or databases, Solidity provides the means to encode the logic, rules, and data structures of decentralized applications directly on the blockchain. Its syntax is similar to that of JavaScript, but it includes types, interfaces, and complex data structures, making it powerful and optimized for blockchain development. Furthermore, Solidity's functionality is pivotal in ensuring trustworthiness, transparency, and immutability in dapps.
+
+6 / 10
+What are the benefits of using smart contracts to manage supply chains?
+
+A. Smart contracts can help to improve the transparency and efficiency of supply chains
+B. Smart contracts can help to reduce the cost of supply chains
+C. Smart contracts can automate many of the tasks involved in supply chain management today, such as tracking the movement of goods and releasing payments to suppliers 
+D. All of the above 
+Smart contracts can revolutionize supply chains by automating contract execution, ensuring transparency, and reducing intermediaries. They can automatically validate product deliveries against preset criteria, triggering instantaneous payments, reducing manual interventions and payment delays. Their immutable nature ensures transparency in product journeys, fostering trust among parties. By automating these processes, they reduce administrative costs, expedite shipments, and enhance the overall efficiency of supply chains.
+
+Further, smart contracts offer real-time visibility into the status of goods, ensuring timely interventions in case of discrepancies or delays. Their decentralized nature minimizes the risk of single-point failures, ensuring a resilient and tamper-proof system, further boosting confidence and collaboration among supply chain stakeholders.
+
+7 / 10
+Which of the following options represent the primary challenge for smart contracts and the larger blockchain industry as a whole?
+
+A. Smart contracts are still limited in automation compared to its centralized Web2 protocols
+B. Smart contracts are still limited in enabling open source solutions compared to its centralized Web2 peers 
+C. Smart contracts are vulnerable to bug and other flaws in the code resulting in security breaches and loss of funds 
+D. Smart contracts are more expensive than traditional protocols
+While smart contracts aim to automate and secure processes, they are not immune to bugs or vulnerabilities. In fact it is still a young technology with limited automation capabilities. But that is a problem that can be solved through technological innovations. Billions of real world value locked in it is what makes it vulnerable to sophisticated attack vectors every passing day and a pressing issue. When flaws exist in smart contract codes, it can lead to potential security breaches. Examples like the DAO hack demonstrate the consequences of vulnerabilities in smart contract code. Unlike traditional software, where bugs can often be patched with updates, the immutable nature of blockchains means that vulnerabilities in deployed smart contracts can't easily be rectified without consensus from network participants or pre-defined upgrade standards and framework.
+
+8 / 10
+Which of these is NOT a use case for smart contracts?
+
+A. Automated insurance payouts
+B. Real-time weather updates 
+C. Supply chain management
+D. Self-executing wills
+Smart contracts self-execute actions based on predefined rules or triggers. However, smart contracts are not inherently aware of real-world data, such as weather conditions. They need an external source to provide this data for them to make decisions or execute functions based on it. Oracles are more or less like a bridge that can fetch data from external sources and feed it into the blockchain so that smart contracts can act on it.
+
+9 / 10
+Which of the following is the MOST accurate definition of gas estimate and gas limit?
+
+A. Gas estimate is the estimated amount of gas that a transaction will require, while gas limit is the maximum amount of gas that a user is willing to spend on a transaction 
+B. Gas estimate is the amount of gas that a transaction has already used, while gas limit is the maximum amount of gas that a transaction can use
+C. Gas estimate is the maximum amount of gas that a user is willing to spend on a transaction, while gas limit is the estimated amount of gas that a transaction will require
+D. Gas estimate is the amount of gas that a transaction has used, while gas limit is the estimated amount of gas that a transaction will require
+The gas estimate is the amount of gas that a wallet or other tool estimates that a transaction will require. The gas limit is the maximum amount of gas that a user is willing to spend on a transaction. If a transaction requires more gas than the gas limit, the transaction will fail. The gas estimate is not always accurate, and it can be affected by a number of factors, such as the complexity of the transaction and the current state of the network. However, tools like Etherscan, MetaMask, Alchemy are useful tools for estimating the cost of a transaction.
+
+The gas limit is important because it prevents users from spending more than they are willing on a transaction. It also helps to protect the network from malicious transactions that are designed to consume a lot of gas.
+
+Example: A user is sending a simple ETH transfer. The wallet estimates that the transaction will require 21,000 gas. The user sets the gas limit to 21,000 gas. The transaction is successful and the user pays 21,000 gas in fees. However, if the user had set the gas limit to 10,000 gas, the transaction would have failed and the user would have lost the gas that they had already paid.
+
+10 / 10
+What is the significant advantage of using oracles in smart contracts?
+
+A. Allow contracts to retrieve external world data 
+B. Increase the speed of transactions
+C. Reduce gas fees
+D. Encrypt and decrypt contract data
+Let’s take the weather example again. Imagine a decentralized insurance platform that compensates users if their flight is canceled due to bad weather. The smart contract governing this insurance would need real-time weather data to determine whether a claim is valid or not. However, the smart contract doesn't inherently know the current weather conditions. This is where the oracle comes in. The oracle fetches the weather data from a trusted weather reporting website or service and inputs it into the smart contract. With the data provided by the oracle, the smart contract can verify if conditions warrant compensation for a weather-caused cancellation and then decide to release the funds if necessary.
