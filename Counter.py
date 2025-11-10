@@ -1,12 +1,23 @@
 
-class A:
-    age = None
-    def __init__(self, age):
-        self.my_age = age
-    def get_older(self):
-        self.my_age += 1
 
-a = A(12)
-print(a)
-print(a.my_age)
-a.get_older()
+class Counter:
+
+    counter = 0
+    def __init__(self, counter):
+        self.counter = counter
+    def increment(self):
+        self.counter += 1
+
+a = Counter(12)
+b = Counter(13)
+
+print(f'a{a}')
+print(f'b {b}')
+print(a.counter)
+
+a.increment()
+b.increment()
+
+print(a.counter)
+
+

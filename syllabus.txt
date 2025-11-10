@@ -1,0 +1,124 @@
+Time series introduction
+What is a Time Series?
+Stochastic Processes
+Definition of noise
+Random Walks and the Random Walk Hypothesis (Markov process)
+The Naive Forecast and the Importance of Baselines
+Deterministic vs Random Component : find the irreductible randomness
+(Optional) Pattern recognition
+Stationarity 
+Stationarity in Code
+Dependence in Time Series
+ACF (Autocorrelation Function)
+PACF (Partial Autocorrelation Function)
+ACF and PACF in Code
+Granger Causality/cointegration
+Granger Causality Code
+Modeling vs. Predicting
+Power, Log, and Box-Cox Transformations
+Forecasting Metrics
+Price Simulations in Code
+(Optional) Monte-Carlo simulation, Itô's lemma and Black-Scholes option pricing
+(Optional) Pattern recognition (DTW distance)
+Univariate time series modeling
+2.1) Smoothing Section Introduction
+SMA,EWMA, SES Theory
+Holt's Linear Trend Model Theory
+Holt-Winters (Theory)
+Code and applications for all models
+(Optional) Walk-Forward Validation
+(Optional) Walk-Forward Validation in Code
+(Optional) Application: Sales Data
+(Optional) Application: Stock Predictions
+(Optional) SMA Application: COVID-19 Counting
+(Optional) SMA Application: Algorithmic Trading
+(Optional) Exponential Smoothing Section Summary
+(Optional) (Optional) More About State-Space Models
+2.2) ARIMA introduction
+Linear models/regression models
+Autoregressive Models - AR(p)
+Moving Average Models - MA(q)
+ARIMA
+ARIMA in Code
+Auto ARIMA and SARIMAX
+Model Selection, AIC and BIC
+Auto ARIMA in Code
+Auto ARIMA in Code (Stocks)
+ACF and PACF for Stock Returns
+Auto ARIMA in Code (Sales Data)
+How to Forecast with ARIMA
+Forecasting Out-Of-Sample
+2.3) GARCH introduction 
+ARCH Theory 
+GARCH Theory
+GARCH Code
+A Deep Learning Approach to GARCH
+Multivariate time series analysis
+VAR/VARMA/VEC models
+VAR and VARMA Theory
+VARMA Code
+Cointegration
+Vector Autoregression / VEC models
+Automatic modeling and forecasting packages
+4.1) Facebook prophet
+How does Prophet work?
+Prophet: Code Preparation
+(Optional) Prophet in Code: Data Preparation
+(Optional) Prophet in Code: Fit, Forecast, Plot
+(Optional) Prophet in Code: Holidays and Exogenous Regressors
+(Optional) Prophet in Code: Cross-Validation
+(Optional) Prophet in Code: Changepoint Detection
+(Optional) Prophet: Multiplicative Seasonality, Outliers, Non-Daily Data
+4.2) AWS auto forecast
+(Optional)  Data Model
+(Optional)  Creating an IAM Role
+(Optional)  Getting and Transforming the Data
+(Optional)  Uploading the data to S3
+(Optional)  Building your Model
+(Optional)  Generating and Evaluating the Forecast
+Machine learning/AI and time series analysis
+5.1) Machine learning models
+Features creation and autoregressivity
+Supervised Machine Learning: Classification and Regression
+Autoregressive Machine Learning Models
+Machine Learning Algorithms: Linear Regression, Logistic Regression, Support Vector Machines, Random Forest
+Machine Learning for Time Series Forecasting in Code
+Forecasting with Differencing
+(Optional) Application: Sales Data
+(Optional) Application: Predicting Stock Prices and Returns
+(Optional) Application: Predicting Stock Movements
+5.2) Machine learning for time series : deep learning ANN
+The Neuron
+Forward Propagation
+The Geometrical Picture
+Activation Functions
+Multiclass Classification
+ANN Code Preparation
+Feedforward ANN for Time Series Forecasting Code
+Feedforward ANN for Stock Return and Price Predictions Code
+(Optional) Human Activity Recognition Dataset
+(Optional) Human Activity Recognition: Code Preparation
+(Optional) Human Activity Recognition: Data Exploration
+(Optional) Human Activity Recognition: Multi-Input ANN
+(Optional) Human Activity Recognition: Feature-Based Model
+(Optional) Human Activity Recognition: Combined Model
+(Optional) How Does a Neural Network "Learn"?
+(Optional) Artificial Neural 
+5.3) Machine learning for time series : deep learning CNN
+What is Convolution?
+(Optional) What is Convolution? (Pattern-Matching)
+(Optional) What is Convolution? (Weight Sharing)
+(Optional) Convolution on Color Images
+(Optional) Convolution for Time Series and ARIMA
+CNN Architecture
+CNN Code Preparation
+CNN for Time Series Forecasting in Code
+CNN for Human Activity Recognition
+5.4) Machine learning : deep learning RNN
+Simple RNN / Elman Unit theory
+Aside: State Space Models vs. RNNs
+RNN Code Preparation
+RNNs: Understanding by Implementing (Paying Attention to Shapes)
+GRU and LSTM Theory
+LSTMs for Time Series Forecasting in Code
+The Unreasonable Ineffectiveness of Recurrent Neural Networks
