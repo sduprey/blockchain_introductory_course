@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bittensor : Mécanismes Mathématiques</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+        }
+        
+        /* Grid background pattern */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(51, 65, 85, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 65, 85, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        /* Neural network decorative elements */
+        .node {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(56, 189, 248, 0.6); /* Sky 400 */
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .line {
+            position: absolute;
+            height: 1px;
+            background-color: rgba(56, 189, 248, 0.2);
+            transform-origin: left center;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 80px;
+        }
+
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            /* Fallback for no gradient support */
+            color: #f8fafc;
+        }
+        
+        .accent-text {
+            color: #38bdf8; /* Sky 400 */
+        }
+
+        .subtitle {
+            font-size: 32px;
+            font-weight: 300;
+            color: #cbd5e1; /* Slate 300 */
+            margin-bottom: 60px;
+            max-width: 900px;
+            line-height: 1.4;
+        }
+
+        .objective-box {
+            background-color: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: 30px 50px;
+            max-width: 800px;
+            backdrop-filter: blur(5px);
+        }
+
+        .objective-title {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            color: #94a3b8; /* Slate 400 */
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .objective-text {
+            font-size: 20px;
+            color: #e2e8f0; /* Slate 200 */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .brand-corner {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #64748b;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 20px;
+            color: #38bdf8;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Background Grid -->
+<div class="grid-bg"></div>
+<!-- Decorative Neural Nodes -->
+<div class="node" style="top: 15%; left: 10%; width: 12px; height: 12px;"></div>
+<div class="node" style="top: 25%; left: 18%; width: 8px; height: 8px;"></div>
+<div class="node" style="top: 70%; left: 12%; width: 15px; height: 15px;"></div>
+<div class="node" style="top: 80%; left: 25%; width: 6px; height: 6px;"></div>
+<div class="node" style="top: 20%; right: 15%; width: 10px; height: 10px;"></div>
+<div class="node" style="top: 65%; right: 10%; width: 14px; height: 14px;"></div>
+<div class="node" style="top: 35%; right: 25%; width: 8px; height: 8px;"></div>
+<!-- Connecting Lines (Static SVG overlay for cleaner lines) -->
+<svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
+<line stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" x1="10%" x2="18%" y1="15%" y2="25%"></line>
+<line stroke="rgba(56, 189, 248, 0.15)" stroke-width="1" x1="18%" x2="25%" y1="25%" y2="80%"></line>
+<line stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" x1="12%" x2="25%" y1="70%" y2="80%"></line>
+<line stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" x1="85%" x2="75%" y1="20%" y2="35%"></line>
+<line stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" x1="90%" x2="75%" y1="65%" y2="35%"></line>
+<line stroke="rgba(56, 189, 248, 0.1)" stroke-width="1" x1="10%" x2="25%" y1="15%" y2="30%"></line>
+</svg>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h1 class="main-title">
+            BITTENSOR :<br/><span class="accent-text">MÉCANISMES MATHÉMATIQUES</span>
+</h1>
+<p class="subtitle">
+            Optimisation distribuée, évaluations relatives et dynamique de point fixe
+        </p>
+<div class="objective-box">
+<div class="objective-title"><i class="fas fa-bullseye mr-2"></i>OBJECTIF DE LA PRÉSENTATION</div>
+<p class="objective-text">
+                Expliquer comment le réseau converge vers une évaluation véridique et récompense l’intelligence utile, sans autorité centrale, grâce à la théorie des jeux et l'algèbre linéaire.
+            </p>
+            
+</div>
+
+</div>
+<!-- Footer Branding -->
+<div class="brand-corner">
+<i class="fas fa-project-diagram logo-icon"></i>
+<span>Intelligence Distribuée &amp; Consensus Yuma</span>
+</div>
+</body>
+</html>

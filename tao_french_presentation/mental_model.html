@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modèle Mental Global</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #10b981; /* Emerald 500 for "System/Nature" vibe */
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            z-index: 10;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Left Side: The Matrix Visual */
+        .visual-container {
+            flex: 0.55;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .matrix-wrapper {
+            position: relative;
+            padding: 40px;
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Matrix Brackets */
+        .matrix-bracket {
+            position: absolute;
+            width: 20px;
+            top: 30px;
+            bottom: 30px;
+            border: 4px solid #94a3b8;
+            border-radius: 4px;
+        }
+        
+        .bracket-left {
+            left: 20px;
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .bracket-right {
+            right: 20px;
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: auto repeat(4, 1fr);
+            grid-template-rows: auto repeat(4, 1fr);
+            gap: 12px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .matrix-header {
+            font-family: 'JetBrains Mono', monospace;
+            color: #fbbf24; /* Amber 400 for Miners/Functions */
+            font-weight: 700;
+            font-size: 16px;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .matrix-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: #a78bfa; /* Violet 400 for Validators/Sampling */
+            font-weight: 700;
+            font-size: 16px;
+            padding-right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .matrix-cell {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        /* Highlighted Cell Style representing Mixture Weight */
+        .cell-highlight {
+            background-color: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+            color: #34d399;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+        }
+
+        .miner-icon { color: #fbbf24; margin-bottom: 5px; font-size: 14px; }
+        .validator-icon { color: #a78bfa; font-size: 14px; }
+
+        /* Annotations on Matrix */
+        .annotation {
+            position: absolute;
+            background-color: #1e293b;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            white-space: nowrap;
+            z-index: 20;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .annot-top {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+
+        .annot-left {
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: center;
+            border-color: #a78bfa;
+            color: #a78bfa;
+        }
+
+        /* Lagrange Multiplier Visual */
+        .lagrange-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            border: 4px solid #0f172a;
+            z-index: 30;
+        }
+        
+        .lagrange-label {
+            position: absolute;
+            bottom: -35px;
+            right: -10px;
+            font-size: 12px;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        /* Right Side: Definitions */
+        .definitions-container {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .def-card {
+            background-color: rgba(30, 41, 59, 0.4);
+            border-left: 4px solid;
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card-function { border-left-color: #fbbf24; }
+        .card-sampling { border-left-color: #a78bfa; }
+        .card-lagrange { border-left-color: #10b981; background-color: rgba(15, 23, 42, 0.6); }
+
+        .def-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .def-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .icon-function { background-color: rgba(251, 191, 36, 0.1); color: #fbbf24; }
+        .icon-sampling { background-color: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+        .icon-lagrange { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+        .def-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .def-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #94a3b8;
+            margin-left: auto;
+            opacity: 0.7;
+        }
+
+        .def-text {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+            padding-left: 55px;
+        }
+
+        .math-block {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            margin-left: 55px;
+        }
+        
+        .math-formula {
+            font-family: 'JetBrains Mono', monospace;
+            color: #10b981;
+            font-size: 14px;
+        }
+
+        /* Connector Line */
+        .connector {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #10b981);
+            width: 80px;
+            top: 50%;
+            left: -80px;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<header class="header">
+<h1 class="page-title">Modèle Mental Global</h1>
+</header>
+<div class="content-container">
+<!-- Visual Matrix Section representing the Mental Model -->
+<div class="visual-container">
+<div class="matrix-wrapper">
+<div class="matrix-bracket bracket-left"></div>
+<div class="matrix-bracket bracket-right"></div>
+<div class="annotation annot-top"><i class="fas fa-wave-square mr-1"></i> FONCTIONS DE BASE</div>
+<div class="annotation annot-left"><i class="fas fa-eye mr-1"></i> ÉCHANTILLONNAGE</div>
+<!-- Lagrange Multiplier Visual Element -->
+<div class="lagrange-badge">λ</div>
+<div class="lagrange-label">TAO (Contrainte)</div>
+<div class="matrix-grid">
+<!-- Header Row -->
+<div></div> <!-- Corner -->
+<div class="matrix-header"><div class="miner-icon"><i class="fas fa-bezier-curve"></i></div>f₁(x)</div>
+<div class="matrix-header"><div class="miner-icon"><i class="fas fa-bezier-curve"></i></div>f₂(x)</div>
+<div class="matrix-header"><div class="miner-icon"><i class="fas fa-bezier-curve"></i></div>f₃(x)</div>
+<div class="matrix-header"><div class="miner-icon"><i class="fas fa-bezier-curve"></i></div>...</div>
+<!-- Row 1 -->
+<div class="matrix-label"><i class="fas fa-crosshairs validator-icon"></i>x₁</div>
+<div class="matrix-cell cell-highlight">w₁₁</div>
+<div class="matrix-cell cell-highlight">w₁₂</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<!-- Row 2 -->
+<div class="matrix-label"><i class="fas fa-crosshairs validator-icon"></i>x₂</div>
+<div class="matrix-cell cell-highlight">w₂₁</div>
+<div class="matrix-cell cell-highlight">w₂₂</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<!-- Row 3 -->
+<div class="matrix-label"><i class="fas fa-crosshairs validator-icon"></i>x₃</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<!-- Row 4 -->
+<div class="matrix-label">...</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+<div class="matrix-cell">...</div>
+</div>
+</div>
+</div>
+<!-- Definitions Section -->
+<div class="definitions-container">
+<!-- 1. Miners as Functions -->
+<div class="def-card card-function">
+<div class="def-header">
+<div class="def-icon-box icon-function"><i class="fas fa-cube"></i></div>
+<div class="def-title">Mineurs = Fonctions</div>
+<div class="def-subtitle">f(x)</div>
+</div>
+<p class="def-text">
+                Chaque mineur est une "fonction" black-box. Il reçoit des inputs (x) et produit une sortie d'intelligence.
+            </p>
+</div>
+<!-- 2. Validators as Sampling -->
+<div class="def-card card-sampling">
+<div class="def-header">
+<div class="def-icon-box icon-sampling"><i class="fas fa-vial"></i></div>
+<div class="def-title">Validateurs = Échantillonnage</div>
+<div class="def-subtitle">Observation</div>
+</div>
+<p class="def-text">
+                Ils sondent l'espace des fonctions par des requêtes diverses. Ils cherchent le mélange pondéré optimal.
+            </p>
+</div>
+<!-- 3. TAO as Lagrange Multiplier (Highlighted) -->
+<div class="def-card card-lagrange">
+<!-- Connector to visual showing the constraint link -->
+<div class="connector"></div>
+<div class="def-header">
+<div class="def-icon-box icon-lagrange"><i class="fas fa-balance-scale"></i></div>
+<div class="def-title">TAO = Multiplicateur de Lagrange</div>
+<div class="def-subtitle">Constraintes</div>
+</div>
+<p class="def-text">
+                Le token TAO agit comme la force (λ) qui impose les contraintes au système : vérité, alignement et rareté.
+            </p>
+<div class="math-block">
+<span class="math-formula">Maximize Utility - λ·Constraint</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

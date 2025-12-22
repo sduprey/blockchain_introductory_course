@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bittensor — Sommaire</title>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #ffffff;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(51, 65, 85, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51, 65, 85, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+}
+
+/* Decorative nodes */
+.node {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.accent-text {
+    color: #38bdf8;
+}
+
+.subtitle {
+    font-size: 26px;
+    font-weight: 300;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.toc-box {
+    background-color: rgba(30, 41, 59, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 14px;
+    padding: 28px 40px;
+    width: 900px;
+    backdrop-filter: blur(6px);
+}
+
+.toc-title {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: #94a3b8;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.toc-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.toc-list a:hover {
+    color: #38bdf8;
+    transform: translateX(6px);
+}
+
+.brand-corner {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    font-size: 14px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+.logo-icon {
+    font-size: 20px;
+    color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- Decorative Nodes -->
+<div class="node" style="top:15%; left:10%; width:12px; height:12px;"></div>
+<div class="node" style="top:70%; left:12%; width:15px; height:15px;"></div>
+<div class="node" style="top:25%; right:18%; width:10px; height:10px;"></div>
+<div class="node" style="top:65%; right:10%; width:14px; height:14px;"></div>
+
+<div class="content-wrapper">
+
+    <h1 class="main-title">
+        BITTENSOR TAO<br>
+        <span class="accent-text">BITTENSOR EXPLAINED</span>
+    </h1>
+
+    <p class="subtitle">
+        Parcours structuré — concepts, dynamiques et convergence
+    </p>
+
+    <div class="toc-box">
+        <div class="toc-title">
+            <i class="fas fa-list-ol mr-2"></i>Sommaire
+        </div>
+
+        <div class="toc-list">
+            <a href="intro.html">1. Introduction</a>
+            <a href="plan.html">2. Plan</a>
+            <a href="optimisation.html">3. Optimisation</a>
+            <a href="matrix.html">4. Matrix</a>
+            <a href="relative_weights.html">5. Relative Weights</a>
+            <a href="reward.html">6. Reward</a>
+            <a href="fixed_point.html">7. Fixed Point</a>
+            <a href="lyers_loosers.html">8. Liars & Losers</a>
+            <a href="overfitting.html">9. Overfitting</a>
+            <a href="learning_rate.html">10. Learning Rate</a>
+            <a href="no_monopoly.html">11. No Monopoly</a>
+            <a href="mental_model.html">12. Mental Model</a>
+            <a href="conclusion.html">13. Conclusion</a>
+        </div>
+    </div>
+</div>
+
+<div class="brand-corner">
+    <i class="fas fa-project-diagram logo-icon"></i>
+    <span>Intelligence Distribuée & Consensus Yuma</span>
+</div>
+
+</body>
+</html>

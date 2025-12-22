@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plan de la présentation</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* SVG Grid Pattern as background image */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 50px 60px 20px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #38bdf8; /* Sky 400 */
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px 60px 50px 60px;
+            z-index: 10;
+            display: flex;
+            gap: 40px;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #64748b; /* Slate 500 */
+            margin-bottom: 5px;
+            font-weight: 600;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+        }
+
+        .agenda-item {
+            background-color: rgba(30, 41, 59, 0.6); /* Slate 800 */
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle left accent bar for items */
+        .agenda-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+
+        .agenda-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #38bdf8; /* Sky 400 */
+            margin-right: 15px;
+            min-width: 35px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .agenda-text {
+            font-size: 16px;
+            color: #cbd5e1; /* Slate 300 */
+            font-weight: 400;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Highlight specific item */
+        .highlight-item {
+            border-color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+        
+        .highlight-item .agenda-text {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Decorative Background Blob */
+        .glow-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(56, 189, 248, 0.05);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .footer-icon {
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<!-- Decorative Glows -->
+<div class="glow-blob" style="top: -100px; right: -100px;"></div>
+<div class="glow-blob" style="bottom: -150px; left: -150px; width: 400px; height: 400px; background-color: rgba(99, 102, 241, 0.05);"></div>
+<header class="header">
+<h1 class="page-title">Plan de la présentation</h1>
+</header>
+<div class="content-container">
+<!-- Column 1: Fondements -->
+<div class="column">
+<div class="section-label">01 // Fondements</div>
+<div class="agenda-item">
+<div class="agenda-number">01</div>
+<p class="agenda-text">Le problème d’optimisation central</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">02</div>
+<p class="agenda-text">Objets clés : mineurs, validateurs, matrice W</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">03</div>
+<p class="agenda-text">Poids relatifs : le pourquoi</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">04</div>
+<p class="agenda-text">Des poids aux récompenses (idée du point fixe)</p>
+</div>
+</div>
+<!-- Column 2: Mécanismes & Théorie -->
+<div class="column">
+<div class="section-label">02 // Mécanismes &amp; Théorie</div>
+<div class="agenda-item">
+<div class="agenda-number">05</div>
+<p class="agenda-text">Intuition du point fixe</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">06</div>
+<p class="agenda-text">Pourquoi les validateurs menteurs perdent</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">07</div>
+<p class="agenda-text">Pourquoi les mineurs ne peuvent pas spammer / surapprendre</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">08</div>
+<p class="agenda-text">Émissions = gradient ascent</p>
+</div>
+</div>
+<!-- Column 3: Vision Globale -->
+<div class="column">
+<div class="section-label">03 // Vision Globale</div>
+<div class="agenda-item">
+<div class="agenda-number">09</div>
+<p class="agenda-text">Pas de monopole</p>
+</div>
+<div class="agenda-item">
+<div class="agenda-number">10</div>
+<p class="agenda-text">Modèle mental global</p>
+</div>
+<div class="agenda-item highlight-item">
+<div class="agenda-number">11</div>
+<p class="agenda-text">Résumé en une phrase</p>
+</div>
+</div>
+</div>
+<div class="footer-icon">
+<i class="fas fa-layer-group"></i>
+</div>
+</body>
+</html>

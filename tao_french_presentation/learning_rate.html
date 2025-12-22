@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Les émissions comme Gradient Ascent</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #10b981; /* Emerald 500 for Growth/Ascent */
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            z-index: 10;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Left Column: Explanations */
+        .left-col {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .concept-card {
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+        }
+
+        .concept-text {
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .highlight-box {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: #a7f3d0;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Right Column: Visualization & Math */
+        .right-col {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .visual-frame {
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            padding: 20px;
+            position: relative;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* Gradient Grid Background (CSS generated) */
+        .grid-surface {
+            position: absolute;
+            bottom: -50px;
+            width: 120%;
+            height: 200px;
+            background: 
+                linear-gradient(to right, rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(300px) rotateX(60deg);
+            z-index: 0;
+        }
+
+        /* Mountain/Peak SVG */
+        .peak-svg {
+            position: absolute;
+            bottom: 40px;
+            width: 80%;
+            height: 180px;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+        }
+
+        .miner-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #fbbf24;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 10px #fbbf24;
+            z-index: 10;
+        }
+
+        .arrow-up {
+            position: absolute;
+            color: #10b981;
+            font-size: 20px;
+            animation: floatUp 2s infinite ease-in-out;
+            z-index: 5;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
+        .math-container {
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .equation-block {
+            text-align: center;
+        }
+
+        .equation-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .equation-tex {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            color: #e2e8f0;
+        }
+
+        .eq-highlight {
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .comparison-arrow {
+            color: #64748b;
+            font-size: 24px;
+        }
+
+        /* Floating labels on visual */
+        .label-axis {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .label-y { top: 20px; left: 20px; }
+        .label-x { bottom: 10px; right: 20px; }
+        .label-peak { 
+            top: 40px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<header class="header">
+<h1 class="page-title">Les émissions comme Gradient Ascent</h1>
+<p style="margin: 0 0 0 26px; color: #94a3b8; font-family: 'Montserrat', sans-serif;">(Optimisation stochastique globale)</p>
+</header>
+<div class="content-container">
+<!-- Left Column: Concepts -->
+<div class="left-col">
+<!-- Card 1: The Analogy -->
+<div class="concept-card">
+<div class="concept-title">
+<i class="fas fa-bolt"></i>
+<span>L'Analogie Fondamentale</span>
+</div>
+<p class="concept-text">
+                    Considérez l'émission de TAO non pas comme un salaire, mais comme un <strong>taux d'apprentissage (Learning Rate)</strong> pour le réseau entier.
+                </p>
+</div>
+<!-- Card 2: The Mechanism -->
+<div class="concept-card">
+<div class="concept-title">
+<i class="fas fa-mountain"></i>
+<span>La Mécanique d'Ascension</span>
+</div>
+<p class="concept-text">
+                    Les récompenses poussent le système "vers le haut". Les mineurs performants reçoivent du capital, augmentant leur impact. Les mauvais performeurs reçoivent un gradient quasi nul et disparaissent.
+                </p>
+</div>
+<!-- Card 3: The Result -->
+<div class="highlight-box">
+<p class="highlight-text">
+                    &gt; Résultat : Le réseau exécute une "montée de gradient stochastique" sur la qualité de l'intelligence, sans jamais définir explicitement ce qu'est l'intelligence.
+                </p>
+</div>
+</div>
+<!-- Right Column: Visual & Math -->
+<div class="right-col">
+<!-- Visualization -->
+<div class="visual-frame">
+<!-- 3D Grid Effect -->
+<div class="grid-surface"></div>
+<!-- Axis Labels -->
+<div class="label-axis label-y">↑ Récompense (Gradient)</div>
+<div class="label-axis label-x">Espace des Modèles →</div>
+<div class="label-peak">Objectif : Intelligence Utile</div>
+<!-- Abstract Mountain Curve -->
+<svg class="peak-svg" preserveaspectratio="none" viewbox="0 0 200 100">
+<!-- Fill with gradient -->
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgba(16, 185, 129, 0.6);stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:rgba(16, 185, 129, 0);stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,100 C50,100 70,20 100,10 C130,20 150,100 200,100" fill="url(#grad1)" stroke="#10b981" stroke-width="2"></path>
+</svg>
+<!-- Miners climbing -->
+<div class="miner-dot" style="bottom: 40px; left: 20%; opacity: 0.5;"></div>
+<div class="miner-dot" style="bottom: 70px; left: 35%; opacity: 0.8;"></div>
+<div class="miner-dot" style="bottom: 120px; left: 48%; box-shadow: 0 0 20px #fbbf24; background-color: #fff;"></div> <!-- Top miner -->
+<div class="miner-dot" style="bottom: 60px; right: 35%; opacity: 0.7;"></div>
+<!-- Gradient Arrows -->
+<div class="arrow-up" style="bottom: 50px; left: 21%; transform: rotate(45deg);"><i class="fas fa-arrow-up"></i></div>
+<div class="arrow-up" style="bottom: 80px; left: 36%; transform: rotate(30deg); animation-delay: 0.5s;"><i class="fas fa-arrow-up"></i></div>
+<div class="arrow-up" style="bottom: 70px; right: 36%; transform: rotate(-30deg); animation-delay: 1s;"><i class="fas fa-arrow-up"></i></div>
+</div>
+<!-- Math Equation Block -->
+<div class="math-container">
+<div class="equation-block">
+<p class="equation-label">Machine Learning Standard</p>
+<p class="equation-tex">
+                        Δθ ≈ <span style="color: #64748b;">η</span> · ∇<span style="color: #a78bfa;">L</span>
+</p>
+</div>
+<div class="comparison-arrow">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<div class="equation-block">
+<p class="equation-label">Bittensor (Réseau)</p>
+<p class="equation-tex">
+                        ΔS ≈ <span class="eq-highlight">TAO</span> · ∇<span class="eq-highlight">Utilité</span>
+</p>
+</div>
+</div>
+<div style="text-align: center; font-size: 12px; color: #64748b; font-style: italic;">
+<p>Où S = Stake (Influence) et TAO = Incitation économique</p>
+</div>
+</div>
+</div>
+</body>
+</html>

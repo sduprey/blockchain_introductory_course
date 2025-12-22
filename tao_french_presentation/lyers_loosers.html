@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pourquoi les validateurs menteurs perdent</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #ef4444; /* Red for Risk/Warning theme */
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            z-index: 10;
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Left Column: The Scenario Flow */
+        .scenario-column {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .scenario-step {
+            background-color: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            border-left: 5px solid;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            z-index: 2;
+        }
+
+        .scenario-step:hover {
+            transform: translateX(10px);
+        }
+
+        /* Connector Line */
+        .connector-line {
+            position: absolute;
+            left: 35px; /* Aligned with icon center roughly */
+            top: 40px;
+            bottom: 40px;
+            width: 2px;
+            background-color: #475569;
+            z-index: 1;
+            border-left: 2px dashed #475569;
+        }
+
+        /* Step Styles */
+        .step-attack {
+            border-left-color: #ef4444; /* Red */
+        }
+        
+        .step-defense {
+            border-left-color: #38bdf8; /* Blue */
+        }
+
+        .step-result {
+            border-left-color: #fbbf24; /* Amber */
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            background-color: #0f172a;
+            border: 2px solid;
+        }
+
+        .step-attack .step-icon { border-color: #ef4444; color: #ef4444; }
+        .step-defense .step-icon { border-color: #38bdf8; color: #38bdf8; }
+        .step-result .step-icon { border-color: #fbbf24; color: #fbbf24; }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            color: #f1f5f9;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Arrow connecting steps */
+        .flow-arrow {
+            position: absolute;
+            left: 36px;
+            font-size: 18px;
+            color: #64748b;
+            z-index: 3;
+            background-color: #0f172a;
+            border-radius: 50%;
+        }
+
+        /* Right Column: Game Theory / Nash */
+        .theory-column {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .theory-card {
+            background-color: #1e293b;
+            border: 1px solid #a78bfa;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Glow effect behind card */
+        .theory-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #a78bfa, #38bdf8, #a78bfa);
+            z-index: -1;
+            border-radius: 18px;
+            opacity: 0.3;
+            filter: blur(10px);
+        }
+
+        .theory-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .theory-icon {
+            font-size: 28px;
+            color: #a78bfa;
+            margin-right: 15px;
+        }
+
+        .theory-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .math-block {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 3px solid #a78bfa;
+        }
+
+        .math-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+
+        .conclusion-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        .highlight {
+            color: #a78bfa;
+            font-weight: 700;
+        }
+
+        /* Badge for outcome */
+        .outcome-badge {
+            display: inline-block;
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 15px;
+            text-transform: uppercase;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<header class="header">
+<h1 class="page-title">Pourquoi les validateurs menteurs perdent</h1>
+<p style="margin: 0 0 0 26px; color: #94a3b8; font-family: 'Montserrat', sans-serif;">(Sécurité crypto-économique)</p>
+</header>
+<div class="content-container">
+<!-- Left: The Scenario -->
+<div class="scenario-column">
+<!-- Connector Line visual -->
+<div class="connector-line"></div>
+<!-- Step 1: The Lie -->
+<div class="scenario-step step-attack">
+<div class="step-icon">
+<i class="fas fa-mask"></i>
+</div>
+<div class="step-content">
+<h3>1. Le Mensonge</h3>
+<p>Un validateur malhonnête <strong>surévalue</strong> un mineur peu performant (copinage ou attaque).</p>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flow-arrow" style="top: 32%;">
+<i class="fas fa-arrow-down"></i>
+</div>
+<!-- Step 2: The Consensus -->
+<div class="scenario-step step-defense">
+<div class="step-icon">
+<i class="fas fa-users-cog"></i>
+</div>
+<div class="step-content">
+<h3>2. La Réaction du Consensus</h3>
+<p>Les autres validateurs (honnêtes) attribuent des scores bas à ce mineur. Le <strong>vecteur moyen</strong> rejette le mineur.</p>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flow-arrow" style="top: 66%;">
+<i class="fas fa-arrow-down"></i>
+</div>
+<!-- Step 3: The Penalty -->
+<div class="scenario-step step-result">
+<div class="step-icon">
+<i class="fas fa-chart-line-down"></i>
+</div>
+<div class="step-content">
+<h3>3. La Conséquence Financière</h3>
+<p>Le poids du menteur ne <strong>corrèle pas</strong> avec le consensus. Sa part de récompense (dividende) chute vers zéro.</p>
+</div>
+</div>
+</div>
+<!-- Right: Game Theory -->
+<div class="theory-column">
+<div class="theory-card">
+<div class="theory-header">
+<i class="fas fa-chess theory-icon"></i>
+<h2 class="theory-title">Équilibre de Nash</h2>
+</div>
+<p class="conclusion-text">
+                    Le système est conçu pour que la malhonnêteté soit économiquement irrationnelle.
+                </p>
+<div class="math-block">
+<p class="math-text">Profit(Vérité) &gt; Profit(Mensonge)</p>
+<p class="math-text" style="font-size: 12px; color: #94a3b8; margin-top: 5px;">∀ stratégies adverses</p>
+</div>
+<p class="conclusion-text">
+                    La seule stratégie stable pour maximiser les profits est de <strong>dire la vérité objective</strong> sur la qualité des mineurs.
+                </p>
+<div class="outcome-badge">
+<i class="fas fa-check mr-2"></i>Honnêteté = Stratégie Optimale
+                </div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Intuition du point fixe</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #a78bfa; /* Changed to purple for math intuition */
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 40px 60px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Flow Container */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            gap: 20px;
+        }
+
+        /* Connecting Lines (Background) */
+        .flow-connector {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #334155;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        /* Step Card */
+        .step-card {
+            flex: 1;
+            background-color: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(167, 139, 250, 0.2); /* Purple tint base */
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: #a78bfa;
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+
+        /* Step Number Badge */
+        .step-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            border: 3px solid #38bdf8;
+            color: #38bdf8;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            align-self: flex-start;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .step-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .step-icon {
+            color: #38bdf8;
+            margin-right: 10px;
+            margin-top: 4px;
+            font-size: 12px;
+        }
+
+        /* Arrow Flow Indicators */
+        .arrow-indicator {
+            position: absolute;
+            top: 50px;
+            color: #64748b;
+            font-size: 24px;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            background-color: #0f172a;
+            padding: 0 10px;
+        }
+
+        /* Feedback Loop (Bottom Curved Arrow) */
+        .feedback-loop {
+            position: absolute;
+            bottom: -50px;
+            left: 15%;
+            right: 15%;
+            height: 60px;
+            border: 2px dashed #fbbf24; /* Amber for recursion */
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            z-index: 5;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .feedback-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fbbf24;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            background-color: #0f172a;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #fbbf24;
+        }
+
+        /* Key Metric Box inside card */
+        .metric-box {
+            margin-top: 15px;
+            background-color: rgba(15, 23, 42, 0.5);
+            border-radius: 6px;
+            padding: 10px;
+            border-left: 3px solid #fbbf24;
+        }
+
+        .metric-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #e2e8f0;
+            margin: 0;
+        }
+
+        /* Specific accents for steps */
+        .step-1 .step-badge { border-color: #38bdf8; color: #38bdf8; } /* Blue - Logic */
+        .step-2 .step-badge { border-color: #a78bfa; color: #a78bfa; } /* Purple - Math */
+        .step-3 .step-badge { border-color: #10b981; color: #10b981; } /* Green - Result */
+
+        .step-1 .metric-box { border-left-color: #38bdf8; }
+        .step-2 .metric-box { border-left-color: #a78bfa; }
+        .step-3 .metric-box { border-left-color: #10b981; }
+
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<header class="header">
+<h1 class="page-title">Intuition du point fixe</h1>
+<p style="margin: 0 0 0 26px; color: #94a3b8; font-family: 'Montserrat', sans-serif;">(La dynamique de convergence du réseau)</p>
+</header>
+<div class="content-container">
+<div class="flow-container">
+<!-- Background Connector Line -->
+<div class="flow-connector"></div>
+<!-- Arrow Indicators between steps -->
+<div class="arrow-indicator" style="left: 33%;">
+<i class="fas fa-arrow-right"></i>
+</div>
+<div class="arrow-indicator" style="left: 66%;">
+<i class="fas fa-arrow-right"></i>
+</div>
+<!-- Step 1: Le Mécanisme -->
+<div class="step-card step-1">
+<div class="step-badge">
+<i class="fas fa-sync-alt" style="font-size: 18px;"></i>
+</div>
+<h3 class="step-title">Le Mécanisme</h3>
+<div class="step-content">
+<ul class="step-list">
+<li class="step-item">
+<i class="fas fa-check-circle step-icon"></i>
+<span>Les validateurs qui classent bien les bons mineurs sont récompensés.</span>
+</li>
+<li class="step-item">
+<i class="fas fa-chart-line step-icon"></i>
+<span>Récompense accrue = Plus de Stake (Influence).</span>
+</li>
+<li class="step-item">
+<i class="fas fa-hand-holding-usd step-icon"></i>
+<span>Plus d'influence = Plus de capacité à financer ces bons mineurs.</span>
+</li>
+</ul>
+<div class="metric-box">
+<p class="metric-text">Influence(t+1) &gt; Influence(t)</p>
+</div>
+</div>
+</div>
+<!-- Step 2: Analogie Mathématique -->
+<div class="step-card step-2">
+<div class="step-badge">
+<i class="fas fa-superscript" style="font-size: 18px;"></i>
+</div>
+<h3 class="step-title">Analogie Mathématique</h3>
+<div class="step-content">
+<ul class="step-list">
+<li class="step-item">
+<i class="fas fa-network-wired step-icon" style="color: #a78bfa;"></i>
+<span><strong>PageRank :</strong> La confiance circule comme l'autorité sur le web.</span>
+</li>
+<li class="step-item">
+<i class="fas fa-vector-square step-icon" style="color: #a78bfa;"></i>
+<span><strong>Vecteurs Propres :</strong> Le réseau cherche le vecteur principal de la matrice de confiance.</span>
+</li>
+<li class="step-item">
+<i class="fas fa-redo step-icon" style="color: #a78bfa;"></i>
+<span>Calcul via <strong>Itération de Puissance</strong>.</span>
+</li>
+</ul>
+<div class="metric-box">
+<p class="metric-text">Tv = λv (Vecteur Propre)</p>
+</div>
+</div>
+</div>
+<!-- Step 3: Effet & Convergence -->
+<div class="step-card step-3">
+<div class="step-badge">
+<i class="fas fa-crosshairs" style="font-size: 18px;"></i>
+</div>
+<h3 class="step-title">Convergence Stable</h3>
+<div class="step-content">
+<ul class="step-list">
+<li class="step-item">
+<i class="fas fa-magnet step-icon" style="color: #10b981;"></i>
+<span>Les bons mineurs attirent les validateurs honnêtes.</span>
+</li>
+<li class="step-item">
+<i class="fas fa-user-shield step-icon" style="color: #10b981;"></i>
+<span>Les validateurs honnêtes gagnent en poids.</span>
+</li>
+<li class="step-item">
+<i class="fas fa-ban step-icon" style="color: #ef4444;"></i>
+<span>Les mauvais acteurs (menteurs) perdent leur influence (poids → 0).</span>
+</li>
+</ul>
+<div class="metric-box">
+<p class="metric-text">lim(t→∞) W_t = Équilibre de Nash</p>
+</div>
+</div>
+</div>
+<!-- Feedback Loop Visualization -->
+<div class="feedback-loop">
+<div class="feedback-label">Cercle Vertueux : Honnêteté = Puissance</div>
+<!-- Arrow pointing back to start -->
+<div style="position: absolute; bottom: -10px; left: 0; color: #fbbf24; font-size: 20px;">
+<i class="fas fa-caret-left"></i>
+</div>
+<!-- Arrow pointing from end -->
+<div style="position: absolute; bottom: -10px; right: 0; color: #fbbf24; font-size: 20px;">
+<i class="fas fa-caret-down"></i>
+</div>
+</div>
+</div>
+<div style="margin-top: 80px; text-align: center; color: #64748b; font-size: 14px; font-style: italic;">
+<p>Le système converge naturellement vers une vérité partagée sans autorité centrale.</p>
+</div>
+</div>
+</body>
+</html>

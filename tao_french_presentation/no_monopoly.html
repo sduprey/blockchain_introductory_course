@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pourquoi pas de monopole ?</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #ffffff;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #f8fafc;
+            border-left: 6px solid #38bdf8;
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px 60px 30px 60px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Top Section: Comparison Logic */
+        .comparison-section {
+            display: flex;
+            gap: 40px;
+            flex: 0.45;
+        }
+
+        .logic-card {
+            flex: 1;
+            background-color: rgba(30, 41, 59, 0.4);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logic-card.bad {
+            border-top: 4px solid #ef4444; /* Red */
+        }
+
+        .logic-card.good {
+            border-top: 4px solid #22c55e; /* Green */
+            background-color: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bad .card-label { color: #f87171; }
+        .good .card-label { color: #4ade80; }
+
+        .example-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .bad .example-box { color: #94a3b8; text-decoration: line-through; opacity: 0.7; }
+        .good .example-box { color: #ffffff; border: 1px solid #22c55e; }
+
+        .explanation-text {
+            font-size: 14px;
+            color: #cbd5e1;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Arrow between cards */
+        .arrow-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #64748b;
+        }
+
+        /* Middle Section: Advantages List */
+        .advantages-section {
+            flex: 0.4;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .advantage-card {
+            background-color: rgba(56, 189, 248, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-2px);
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        .adv-icon {
+            font-size: 24px;
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .adv-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .adv-desc {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Bottom Section: Mathematical Consequence */
+        .math-section {
+            flex: 0.15;
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 4px solid #a78bfa; /* Purple accent */
+        }
+
+        .math-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #e2e8f0;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .math-equation {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            color: #a78bfa;
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 5px 20px;
+            border-radius: 4px;
+        }
+
+        .math-interpretation {
+            color: #94a3b8;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        /* Check icon for good card */
+        .check-icon {
+            background-color: #22c55e;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        /* X icon for bad card */
+        .times-icon {
+            background-color: #ef4444;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<header class="header">
+<h1 class="page-title">Pourquoi pas de monopole ?</h1>
+<p style="margin: 0 0 0 26px; color: #94a3b8; font-family: 'Montserrat', sans-serif;">(Mécanismes de résistance à la centralisation)</p>
+</header>
+<div class="content-container">
+<!-- Comparison Logic -->
+<div class="comparison-section">
+<!-- Bad Way: Monopoly Risk -->
+<div class="logic-card bad">
+<div class="card-label">
+<span>Risque de Monopole</span>
+<div class="times-icon"><i class="fas fa-times"></i></div>
+</div>
+<div class="example-box">
+<p style="margin:0;">"Winner Takes All"</p>
+</div>
+<p class="explanation-text">
+                    Si un seul mineur domine, les validateurs subissent un risque systémique énorme (point de défaillance unique).
+                </p>
+</div>
+<!-- Arrow -->
+<div class="arrow-divider">
+<i class="fas fa-chevron-right"></i>
+</div>
+<!-- Good Way: Diversification -->
+<div class="logic-card good">
+<div class="card-label">
+<span>Stratégie Bittensor</span>
+<div class="check-icon"><i class="fas fa-check"></i></div>
+</div>
+<div class="example-box">
+<p style="margin:0;">Diversification</p>
+</div>
+<p class="explanation-text">
+                    Les validateurs agissent comme des investisseurs avisés : ils diversifient leur "confiance" pour réduire le risque.
+                </p>
+</div>
+</div>
+<!-- Advantages Grid (Anti-Monopoly Mechanisms) -->
+<div class="advantages-section">
+<!-- Mechanism 1 -->
+<div class="advantage-card">
+<div class="adv-icon"><i class="fas fa-shield-halved"></i></div>
+<h3 class="adv-title">Réduction du Risque</h3>
+<p class="adv-desc">
+                    Les validateurs rationnels évitent de tout miser sur un seul modèle. La diversification protège leur propre rendement en cas de panne d'un mineur.
+                </p>
+</div>
+<!-- Mechanism 2 -->
+<div class="advantage-card">
+<div class="adv-icon"><i class="fas fa-chart-line" style="transform: scaleY(-1);"></i></div>
+<h3 class="adv-title">Utilité Marginale Décroissante</h3>
+<p class="adv-desc">
+                    Le gain marginal d'ajouter du poids à un mineur déjà dominant diminue, ce qui incite mathématiquement à explorer et soutenir d'autres talents.
+                </p>
+</div>
+<!-- Mechanism 3 -->
+<div class="advantage-card">
+<div class="adv-icon"><i class="fas fa-network-wired"></i></div>
+<h3 class="adv-title">Spécialisation (Subnets)</h3>
+<p class="adv-desc">
+                    Aucun modèle unique ne peut exceller partout ("No Free Lunch"). La structure en sous-réseaux force la distribution des tâches spécialisées.
+                </p>
+</div>
+</div>
+<!-- Mathematical Consequence -->
+<div class="math-section">
+<div class="math-label">
+<i class="fas fa-project-diagram mr-2"></i>Résultat Systémique
+            </div>
+<div class="math-equation">
+                ∄ Équilibre Monopole
+            </div>
+<div class="math-interpretation">
+                L'intelligence reste distribuée et robuste.
+            </div>
+</div>
+</div>
+</body>
+</html>
