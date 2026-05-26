@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>zk-SNARK State Publishing in Ethereum Layer 2</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+        
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .icon-circle {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .step-card {
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366f1;
+            font-size: 20px;
+            padding: 0 4px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .note-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="floating-shape" style="position: absolute; width: 300px; height: 300px; background: #6366f1; top: -150px; left: 1000px; opacity: 0.1; border-radius: 50%;"></div>
+<div class="floating-shape" style="position: absolute; width: 200px; height: 200px; background: #8b5cf6; top: 600px; left: -50px; opacity: 0.1; border-radius: 50%;"></div>
+<!-- Header Section -->
+<div style="position: absolute; top: 30px; left: 60px; width: 1160px; height: 64px;">
+<div style="display: flex; align-items: center; gap: 20px;">
+<div class="icon-circle" style="width: 56px; height: 56px; flex-shrink: 0;">
+<i class="fas fa-layer-group" style="color: white; font-size: 24px;"></i>
+</div>
+<div>
+<h1 style="font-size: 36px; font-weight: 700; color: white; margin: 0; line-height: 1.2;">
+<span class="gradient-text">zk-SNARK State Publishing</span> in Ethereum L2
+            </h1>
+<p style="font-size: 16px; color: rgba(255,255,255,0.85); margin-top: 2px;">
+                How zk-rollups prove state validity on Ethereum
+            </p>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div style="position: absolute; top: 110px; left: 60px; width: 1160px; height: 520px;">
+<!-- Flow Diagram -->
+<div style="background: white; border-radius: 16px; padding: 28px 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+<i class="fas fa-sitemap" style="color: #6366f1; font-size: 18px;"></i>
+<span style="font-size: 18px; font-weight: 600; color: #1e293b;">zk-Rollup State Publishing Flow</span>
+</div>
+<!-- Process Steps Row 1 -->
+<div style="display: flex; gap: 12px; margin-bottom: 20px; align-items: stretch;">
+<!-- Step 1 -->
+<div class="step-card" style="flex: 1;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+<div class="step-number">1</div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b;">Execute Off-Chain</div>
+</div>
+<div style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+                        Transactions are executed on Layer 2, processed off the main Ethereum chain for speed and cost efficiency.
+                    </div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-check-circle" style="color: #10b981; font-size: 12px;"></i>
+<span style="font-size: 12px; color: #10b981; font-weight: 500;">Off-chain execution</span>
+</div>
+</div>
+<div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<!-- Step 2 -->
+<div class="step-card" style="flex: 1;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+<div class="step-number">2</div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b;">Compute State Root</div>
+</div>
+<div style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+                        Layer 2 computes a new state root/commitment representing the updated state.
+                    </div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-calculator" style="color: #6366f1; font-size: 12px;"></i>
+<span style="font-size: 12px; color: #6366f1; font-weight: 500;">State commitment</span>
+</div>
+</div>
+<div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<!-- Step 3 -->
+<div class="step-card" style="flex: 1;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+<div class="step-number">3</div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b;">Publish Data</div>
+</div>
+<div style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+                        Compressed transaction data is published to Ethereum for data availability.
+                    </div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-database" style="color: #f59e0b; font-size: 12px;"></i>
+<span style="font-size: 12px; color: #f59e0b; font-weight: 500;">Data availability</span>
+</div>
+</div>
+</div>
+<!-- Second Row -->
+<div style="display: flex; gap: 12px; margin-bottom: 0px; align-items: stretch; max-width: 66%;">
+<!-- Step 4 -->
+<div class="step-card" style="flex: 1;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+<div class="step-number">4</div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b;">Submit zk-SNARK Proof</div>
+</div>
+<div style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+                        A cryptographic proof is submitted to verify the correctness of the state transition without revealing the data.
+                    </div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-lock" style="color: #8b5cf6; font-size: 12px;"></i>
+<span style="font-size: 12px; color: #8b5cf6; font-weight: 500;">Validity proof</span>
+</div>
+</div>
+<div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<!-- Step 5 -->
+<div class="step-card" style="flex: 1;">
+<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+<div class="step-number">5</div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b;">Verify &amp; Accept</div>
+</div>
+<div style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+                        Ethereum smart contract verifies the proof before accepting the new state.
+                    </div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-check-double" style="color: #10b981; font-size: 12px;"></i>
+<span style="font-size: 12px; color: #10b981; font-weight: 500;">Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparison Note -->
+<div class="note-card">
+<div style="display: flex; align-items: flex-start; gap: 12px;">
+<i class="fas fa-lightbulb" style="color: #10b981; font-size: 18px; margin-top: 2px;"></i>
+<div>
+<div style="font-size: 15px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">
+                        Key Difference from Optimistic Rollups
+                    </div>
+<div style="font-size: 13.5px; color: #475569; line-height: 1.6;">
+<strong>zk-rollups prove correctness upfront</strong> with cryptographic validity proofs, while optimistic rollups rely on fraud proofs and require a challenge period (typically 7 days) before finalizing transactions.
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="position: absolute; top: 650px; left: 60px; width: 1160px; height: 50px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15);">
+<div style="font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+<i class="fas fa-link" style="font-size: 10px;"></i>
+        Sources: ethereum.org/en/layer-2/learn/, l2beat.com/faq
+    </div>
+<div style="display: flex; align-items: center; gap: 10px;">
+<span style="font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500;">zk-Rollup Architecture</span>
+<div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></div>
+</div>
+</div>
+</div>
+</body>
+</html>
